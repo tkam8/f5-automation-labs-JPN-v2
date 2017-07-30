@@ -1,17 +1,12 @@
-Class 1: Introduction to Automation & Orchestration
-===================================================
+Class 1 - AutomationとOrchestrationの紹介
+====================================================
 
-This introductory class covers the following topics:
+このコースでは以下のトピックが含まれています:
 
-- Imperative Automation using the F5 BIG-IP iControl REST API
-- Declarative Automation using the F5 iWorkflow product
-- F5 Automation Tools:
+- F5 BIG-IP iControl REST APIを使用した命令的自動化
+- F5 iWorkflow製品を使用した宣言的オートメーション
 
-  - The f5-super-netops-container
-  - Collections and the f5-postman-workflows extension to Postman
-  - Automation Workflows using f5-newman-wrapper
-
-Expected time to complete: **6 hours**
+完了までの所要時間: **6時間**
 
 .. toctree::
    :maxdepth: 1

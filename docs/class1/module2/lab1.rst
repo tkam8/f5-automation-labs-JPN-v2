@@ -5,99 +5,69 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: iWorkflow Authentication
+Lab |labmodule|\.\ |labnum| – iWorkflow認証
 ------------------------------------------------------
 
-iWorkflow supports the same authentication mechanisms as BIG-IP (HTTP
-BASIC, Token Based Auth). In this lab we will quickly review TBA on
-iWorkflow.
+iWorkflowは、BIG-IP（HTTP BASIC、トークンベースの認証）と同じ認証メカニズムをサポートしています。 このラボでは、iWorkflowのトークンベースの認証を軽く紹介します。
 
-Task 1 – Token Based Authentication
+
+Task 1 – トークンベースの認証
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task we will demonstrate TBA using the local authentication
-database, however, authentication to external providers is fully
-supported.
+このタスクでは、ローカル認証データベースを使用してトークンベースの認証(以下、TBA)を実施しますが、外部プロバイダへの認証は完全にサポートされています。
 
-For more information about external authentication providers see the
-section titled “\ **About external authentication providers with
-iControl REST**\ ” in the iControl REST API User Guide available at
-https://devcentral.f5.com
+外部認証プロバイダの詳細については、https：//devcentral.f5.com の「iControl REST APIユーザーガイド」の “\ **About external authentication providers with　iControl REST**\ ” をご参照しください。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Click the ‘Step 1: Get Authentication Token’ item in the Lab 2.1
-   Postman Collection
+#. Lab 2.1のPostman Collectionの「Step 1: Get Authentication Token」項目をクリックします。
 
-#. Notice that we are sending a POST request to the
-   ``/mgmt/shared/authn/login`` endpoint.
+#. ``/mgmt/shared/authn/login``　エンドポイントにPOST要求を送信していることに注目してください。
 
    |image41|
 
-#. Click the ‘Body’ tab and examine the JSON that we will send to
-   iWorkflow to provide credentials:
+#. 「Body」タブをクリックし、iWorkflowに送信する資格情報を含むJSONボディを確認します。
 
    |image42|
 
-#. Modify the JSON body and add the required credentials (admin/admin).
-   Then click the ‘Send’ button.
+#. JSONボディを変更し、必要な資格情報（admin/admin）を追加します。次に、「Send」ボタンをクリックします。
 
-#. Examine the response status code. If authentication succeeded and a
-   token was generated the response will have a 200 OK status code. If
-   the status code is 401 then check your credentials:
+#. レスポンスステータスコードを確認します。認証が成功し、トークンが生成された場合、200 OKステータスコードが返されます。 ステータスコードが401の場合、資格情報を確認してください。
 
-   **Successful:**
+   **成功の場合:**
 
    - |image43|
 
-   **Unsuccessful:**
+   **失敗の場合:**
 
    - |image44|
 
-#. Once you receive a 200 OK status code examine the response body. The
-   various attributes show the parameters assigned to the particular
-   token. Find the ‘token’ attribute and copy it into your clipboard
-   (Ctrl+c) for use in the next step:
+#. 200 OKのステータスコードを受け取ったら、レスポンスボディを確認します。 様々な属性は、特定のトークンに割り当てられたパラメータを示します。「token」属性を見つけてクリップボードにコピーし（Ctrl + c）、次の手順で使用します。
 
    |image45|
 
-#. Click the ‘Step 2: Verify Authentication Works’ item in the Lab
-   2.1 Postman collection. Click the ‘Headers’ tab and paste the
-   token value copied above as the VALUE for the ``X-F5-Auth-Token``
-   header. This header is required to be sent on all requests when
-   using token based authentication.
+#. Lab 2.1のPostman Collectionの「Step 2: Verify Authentication Works」の項目をクリックします。「Headers」タブをクリックし、上にコピーしたトークン値を ``X-F5-Auth-Token`` ヘッダのVALUEとして貼り付けます。TBAを使用する場合、このヘッダーはすべての要求で送信する必要があります。
 
    |image46|
 
-#. Click the ‘Send’ button. If you’re request is successful you should
-   see a ‘200 OK’ status and a listing of the ‘ltm’ Organizing
-   Collection.
+#. 「Send」ボタンをクリックします。リクエストが成功すると、「200 OK」ステータスと「ltm」Organizing Collectionのリストが表示されます。
 
-#. We will now update your Postman environment to use this auth token
-   for the remainder of the lab. Click the Environment menu in the top
-   right of the Postman window and click ‘Manage Environments’:
+#. ここでは、残りのラボでこの認証トークンを使用するようにPostman環境を更新します。Postman画面の右上にある「Environment」メニューをクリックし、「Manage Environments」をクリックします。
 
    |image47|
 
-#. Click the ‘INTRO – Automation & Orchestration Lab’ item:
+#. 「INTRO – Automation & Orchestration Lab」の項目をクリックします。
 
    |image48|
 
-#. Update the value for ‘iwf\_auth\_token’ by Pasting (Ctrl-v)
-   in your auth token:
+#. 認証トークンに「iwf\_auth\_token」をを貼り付けて（Ctrl-v）、値を更新します。
 
    |image49|
 
-#. Click the ‘Update’ button and then close the ‘Manage Environments’
-   window. You’re subsequent requests will now automatically include
-   the token.
+#. 「Update」ボタンをクリックし、「Manage Environments」ウィンドウを閉じます。 後続のリクエストにトークンが自動的に組み込まれます。
 
-#. Click the ‘Step 3: Set Authentication Token Timeout’ item in the
-   Lab 1.2 Postman collection. This request will PATCH your token
-   Resource (check the URI) and update the timeout attribute so we
-   can complete the lab easily. Examine the request type and JSON
-   Body and then click the ‘Send’ button. Verify that the timeout has
-   been changed to ‘36000’ in the response:
+#. Lab 1.2のPostman collection「Step 3: Set Authentication Token Timeout」の項目をクリックします。このリクエストにより、PATCH要求が送信され、トークンリソースのタイムアウト属性が更新され（URIをチェックする）、ラボを簡単に完了することができます。
+リクエストのタイプとJSONボディを確認し、「Send」ボタンをクリックします。 応答でタイムアウトが「36000」に変更されていることを確認します。
 
    |image50|
 

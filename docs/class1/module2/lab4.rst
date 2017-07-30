@@ -5,141 +5,94 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Deploy L4-7 Services
+Lab |labmodule|\.\ |labnum| – L4-L7サービスを展開
 --------------------------------------------------
 
-To drive iApp automation-based L4-7 deployments, iWorkflow includes the
-capability to create a Tenant Service Catalog via L4 – L7 Service
-Templates. This model of deployment enables Declarative automation of F5
-L4-7 services provided the underlying iApp templates are designed with a
-declarative presentation layer in mind. To demonstrate this capability
-we will create a simple Service Catalog Template and deploy and
-application from a tenant on our BIG-IP devices using the App Services iApp.
+iApp Automationに基づくL4-L7の導入を推進するため、iWorkflowはL4-L7サービステンプレートによるテナントサービスカタログ作成機能を提供します。
+この展開モデルは、F5 L4-L7サービスの宣言的な自動化を可能にしますが、基になるiAppテンプレートは宣言的なプレゼンテーションレイヤ（UI）で設計する必要があります。
+この機能を実証するために、App Services iAppに基づいた簡単なサービスカタログテンプレートを作成し、そのテンプレートでBIG-IPテナントからアプリケーションをデプロイします。
 
-Task 1 - Install the App Services iApp on iWorkflow
+Task 1 - iWorkflowにApp Services iAppをインストール
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-iWorkflow serves as the Source-of-Truth for iApp templates.  As a result iApp
-templates that will be used to automate deployments on BIG-IP must be installed
-on iWorkflow first.  Once installed, iWorkflow will automatically determine
-when a template needs to be installed on BIG-IP and perform the needed actions.
+iWorkflowは、iAppテンプレートのSource of Truth（信頼できる唯一の情報源）として機能します。
+その結果、BIG-IPの展開を自動化するために使用されるiAppテンプレートは、iWorkflowにあらかじめインストールする必要があります。 テンプレートがインストールされると、iWorkflowは必要に応じて自動的にテンプレートをBIG-IPにインストールします。
 
-.. NOTE:: iApp template installation on BIG-IP devices occurs during the
-   **first** service deployment to a device.
+.. NOTE:: BIG-IPデバイス上のiAppテンプレートのインストールは、 **初回** 展開時に行われます。
 
-To assist in deployment of the App Services iApp template and it's associated
-sample service templates a Postman collection has been created.  We will first
-import the collection into Postman and then use it to install the template
-into iWorkflow.
+App Services iAppテンプレート展開を支援するために、Postman Collectionが作成されています。 CollectionをPostmanにインポート後に、iWorkflowにテンプレートをインストールします。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Import the following collection URL using 'Import' -> 'Import from Link':
+#. 「Import」 -> 「Import from Link」から、次のCollection URLをインポートします:
 
    .. parsed-literal::
 
       :raw_github_url:`/postman_collections/AppSvcs_iApp_Workflows.postman_collection.json`
 
-#. Expand the ``AppSvcs_iApp_Workflows`` collection.  Then open the
-   ``2_Install_on_iWorkflow`` folder and click the
-   ``Install AppSvcs Template on iWorkflow`` item.
+#. ``AppSvcs_iApp_Workflows`` を展開します。次に、 ``2_Install_on_iWorkflow`` フォルダを開き、 ``Install AppSvcs Template on iWorkflow`` 項目をクリックします。　　　 
 
-#. You can examine the Body of this request, however, understand that it
-   contains the minified code that comprises the iApp and will not be very
-   readable.  This collection uses the underlying variables that have already
-   been set (``iwf_mgmt`` and ``iwf_auth_token``) to make installation simple.
+#. このリクエストのボディを確認することはできますが、iAppのコードの改行や空白が取り除かれているため、読みにくい場合があります。
+　　　このコレクションは、インストールを簡単にするために既に設定されている基本変数( ``iwf_mgmt`` and ``iwf_auth_token`` )を使用します。
 
-#. Click the 'Send' button to install the iApp.
+#. 「Send」ボタンをクリックし、iAppをインストールします。
 
-Task 2 – Create the f5-http-lb L4–7 Service Template
+Task 2 – f5-http-lb L4-7サービステンプレートを作成
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-An L4-7 Service Deployment on iWorkflow is driven by the creation of an
-L4 – L7 Service Template. These templates allow a provider
-(administrator) to specify the values of specific fields from an origin
-iApp presentation layer. Additionally, the provider also defines the
-tenant interface to the service by marking which fields are ‘\ **Tenant
-Editable**\ ’ and therefore visible during service deployment from the
-tenant. You can think of a Service Catalog Template and a filter that
-allows the vast majority of fields to be filled in or defaulted while
-only exposing the minimal set of fields required to deploy a service.
+iWorkflow上のL4-L7サービスデプロイメントは、L4-L7サービステンプレートの作成から始まります。
+これらのテンプレートを使用すると、プロバイダ（管理者）はiAppプレゼンテーションレイヤ（UI）の特定のフィールドの値を指定できます。
+さらに、プロバイダは、テナントがサービスを展開するときに表示されるパラメータを定義する ‘\ **Tenant Editable**\ ’ 設定を使用することができます。
+基本的には、サービスカタログテンプレートは、サービスを展開するために必要な最小限のフィールドセットを公開するフィルタとして機能します。
+また、特定のパラメータのデフォルト値を設定することもできます。
 
-In this task we will create a Service Catalog Template that utilizes the
-App Services iApp you just installed.
+このタスクでは、以前にインストールしたApp Services iAppを利用するサービスカタログテンプレートを作成します。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Expand the ``3_iWorkflow_Service_Templates_Examples`` folder of the
-   ``AppSvcs_iApp_Workflows`` collection
+#. 「AppSvcs_iApp_Workflows」Collection内の「3_iWorkflow_Service_Templates_Examples」フォルダを展開します。
 
-#. Click the “f5-http-lb Template” item in the collection. This request is
-   pre-built and will create a new Service Template using the App Services iApp.
-   Click the ‘Send’ button to create the template.
+#. Collection内の「f5-http-lb Template」項目をクリックします。このリクエストはあらかじめ作成されており、App Services iAppを使った新しいサービステンプレートを作成します。「Send」ボタンをクリックし、テンプレートを作成します。
 
-#. Open a Chrome tab to iWorkflow (https://10.1.1.6) and login with
-   admin/admin credentials. Expand the ‘Service Templates’ pane and double-click
-   the “f5-http-lb” template. Notice various defaults have been
-   populated (e.g. port ‘80’ for the pool\_\_port variable) and some
-   fields have been marked as ‘Tenant Editable’:
+#. 新しいChromeタブでiWorkflow（https://10.1.1.6）にアクセスし、admin/admin資格情報でログインします。「Service Templates」ペインを展開し、「f5-http-lb」 テンプレートをダブルクリックします。 さまざまなデフォルト値が入力されていること確認してください（たとえば、 pool\_\_port 変数のポート「80」）。また、一部のフィールドには 「Tenant Editable」とマークされています。
 
    |image59|
 
-Task 2 – Tenant L4-7 Service Deployment
+Task 2 – テナントのL4-L7 サービス展開
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task we will perform CRUD operations based on a deployment of
-the Service Catalog Template created in the previous task.
+このタスクでは、前のタスクで作成したサービスカタログテンプレートの展開に基づいてCRUD操作を実行します。
 
-Perform the following steps to complete this task:
+※CRUDとはCreate（作成）、Read（読み取り）、Update（更新）、Delete（削除）機能をまとめた表現です。
 
-#. Open a new Chrome tab to iWorkflow (https://10.1.1.6) and login with
-   the credentials Username: tenant, Password: tenant. Expand the
-   ‘L4-L7 Services’ pane.
+このタスクを完了するには、次の手順を実行します:
 
-#. Switch back to F5 Automation & Orchestration Intro Postman Collection and click the
-   “Step 1: Create TENANT Service Deployment” item in Lab 2.4.
-   Examine the URL and JSON body. We will be creating a
-   new Tenant Service Deployment under ‘MyTenant’ with the properties
-   marked as ‘Tenant Editable’ provided:
+#. 新しいChromeタブでiWorkflow（https://10.1.1.6）にアクセスし、Username: tenant, Password: tenant資格情報でログインします。
+そして、「L4-L7 Services」ペインを展開します。
+
+#. F5 Automation & Orchestration Intro Postman Collectionに戻り、Lab 2.4の「Step 1: Create TENANT Service Deployment」をクリックしてください。 URLとJSONボディを確認します。 そして「MyTenant」配下に、「Tenant Editable」とマークされたパラメータを持つ新しいテナントのサービス展開を作成します。この項目は、サービス展開のCreate（作成）操作の例です。
 
    |image60|
 
-#. Click the ‘Send’ button to create the Service Deployment. Examine
-   the response. The iWorkflow GUI in your Chrome tab will also
-   reflect a new item in the Services pane:
+#. 「Send」ボタンをクリックし、サービス展開を作成後に、レスポンスを確認します。 iWorkflow GUIでは、「Services」ペインに新しい項目が表示されていることを確認します。
 
    |image61|
 
-#. Open a Chrome tab to BIGIP-A. Click on iApps -> Application Services ->
-   Applications -> example-f5-http-lb to view the config that was
-   deployed on BIG-IP:
+#. 新しいChromeタブで、BIGIP-Aにアクセスします。 iApps -> Application Services -> Applications -> example-f5-http-lbをクリックし、BIG-IPにデプロイされた設定を確認します。
 
    |image62|
 
-#. Go back to Postman and click the “Step 2: Get TENANT Service
-   Deployment” item in the collection and click ‘Send’. This item is
-   example of a GET of the service definition. The response should match
-   what you see in the iWorkflow GUI when viewing the properties of a
-   deployment.
+#. Postmanに戻り、Collection内の「Step 2: Get TENANT Service　Deployment」項目をクリックし、「Send」をクリックします。 この項目は、サービス展開のRead（読み取り）操作の例です。 レスポンスは、iWorkflow GUIのデプロイメントプロパティの画面に表示される設定と一致することを確認します。
 
-#. Click the “Step 3: Modify TENANT Service Deployment” item in the
-   collection. This request is an example of an Update operation.
-   Notice that we are sending a PUT request to the URL representing
-   the service deployment. Examine the JSON body and note that in the
-   ‘pool\_\_Members’ table there is an additional pool member with an IP
-   of 10.1.10.12 that will be added. Click the ‘Send’ button to re-deploy
-   the service:
+#. Collection内の「Step 3: Modify TENANT Service Deployment」をクリックします。 この要求は、Update（更新）操作の例です。 サービスデプロイメントを表すURLに対してPUTリクエストを送信していることに注目してください。 JSONボディを解析し、「pool\_\_Members」テーブルにIPアドレスが10.1.10.12の新しいプールメンバーが追加されていることを確認します。「Send」ボタンをクリックし、サービスを再デプロイします。
 
    |image63|
 
-#. Verify that the pool member was added on BIG-IP:
+#. プールメンバーがBIG-IPに追加されたことを確認します。
 
    |image64|
 
-#. Go back to Postman and click the “Step 4: Delete TENANT Service
-   Deployment” item. This item will send a DELETE request to the URL for
-   the service deployment. Click ‘Send’ and verify that the deployment
-   has been removed in the iWorkflow and BIG-IP GUIs.
+#. Postmanに戻り、「Step 4: Delete TENANT Service Deployment」項目をクリックします。 この項目は、サービス展開のURLに対してDELETE要求を送信します。 「Send」をクリックし、iWorkflow及びBIG-IP GUIでデプロイメントが削除されていることを確認します。
 
 .. |image59| image:: /_static/image059.png
    :scale: 40%

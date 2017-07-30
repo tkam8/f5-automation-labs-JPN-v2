@@ -5,43 +5,34 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Connect to f5-super-netops-container
+Lab |labmodule|\.\ |labnum|\: 「f5-super-netops-container」コンテナへのアクセス
 ------------------------------------------------------------------
 
-In the previous lab we started the container image and were presented with a
-root command prompt.  In order to support use the container and it's associated
-tools properly you connect via SSH and/or HTTP.
+以前のラボでは、コンテナイメージを起動し、ルートコマンドプロンプトが表示されました。コンテナとその関連ツールを使用するには、SSHまたはHTTPで接続します。
 
 .. _lab1_3_1:
 
-Task 1 – Connect via SSH
+Task 1 – SSHでの接続
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-To connect to the image via SSH we must use the published port specified in the
-``docker run`` command.  To review the command used to start the container was:
+SSH経由でイメージに接続するには、 ``docker run``　コマンドで指定された外部用ポート番号を使用する必要があります。前のタスクでは、コンテナを起動するためのコマンドは次のとおりでした。
 
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop
 f5devcentral/f5-super-netops-container:develop-jenkins``
 
-This will publish the standard SSH service on ``TCP/22`` to ``TCP/2222`` on the
-Docker host.  In the case of the SSH service the following mapping applies:
+これにより、SSHサービス ``TCP/22`` がDockerホスト上の ``TCP/2222`` に公開されます。また、SSHサービスの場合、次のマッピングが適用されます。
 
 ``localhost:2222 -> f5-super-netops-container:22``
 
-.. NOTE:: If you are using an F5 provided lab environment please use the SSH
-   client and connect to the 'f5-super-netops-container SSH' item
+.. NOTE:: F5提供のラボ環境を使用している場合は、SSHクライアントの「f5-super-netops-container SSH」項目に接続してください。
 
-Additionally the container includes the ``snops`` user with a password of
-``default``.  To connect to the container execute the following command
-or it's OS-specific equivalent:
+ログインする際に、ユーザ名　``snops``　とパスワード　``default``　を入力してください。
+
+コマンド例:
 
 ``ssh -p 2222 snops@localhost``
 
-.. NOTE:: The host SSH keys are regenerated each time the container boots.  As
-   a result you may receive an error when trying to connect indicating the host
-   key has changed.  This error is safe to ignore in this case and can be
-   resolved by removing the key from ``~/.ssh/known_hosts``.  You can also
-   configure your local SSH config by adding the following to ``~/.ssh/config``:
+.. NOTE:: ホストのSSHキーは、コンテナが起動するたびに再生成されます。その結果、接続しようとしたときにホストキーが変更されたことを示すエラーが表示されることがあります。 このエラーは無視しても安全です。 ``〜/ .ssh / known_hosts``　からキーを削除することで解決できます。 ``〜/ .ssh / config``　に以下を追加することでローカルSSH設定を構成することもできます。
 
    .. code::
 
@@ -50,7 +41,7 @@ or it's OS-specific equivalent:
        StrictHostKeyChecking no
        UserKnownHostsFile /dev/null
 
-Example output:
+出力例:
 
 .. code::
 
@@ -106,53 +97,47 @@ Example output:
    Go forth and automate!
    [snops@f5-super-netops] [~] $
 
-Task 2 – Connect via HTTP
+Task 2 – HTTPでの接続
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To connect to the image via HTTP we must use the published port specified in the
-``docker run`` command.  To review the command used to start the container was:
+HTTP経由でイメージに接続するには、 ``docker run``　コマンドで指定された外部用ポート番号を使用する必要があります。前のタスクでは、コンテナを起動するためのコマンドは次のとおりでした。
 
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop
 f5devcentral/f5-super-netops-container:develop-jenkins``
 
-This will publish the standard HTTP service on ``TCP/80`` to ``TCP/8080`` on the
-Docker host.  In the case of the HTTP service the following mapping applies:
+これにより、HTTPサービス ``TCP/80`` がDockerホスト上の ``TCP/8080`` に公開されます。また、HTTPサービスの場合、次のマッピングが適用されます。
 
 ``localhost:8080 -> f5-super-netops-container:80``
 
-.. NOTE:: If you are using an F5 provided lab environment please use the browser
-   and click the 'Super Netops Container' bookmark.
+.. NOTE:: F5提供のラボ環境を使用している場合は、Webブラウザで登録されている「Super Netops Container」お気に入りのサイトをクリックしてください。
 
-To connect via HTTP open a web browser and enter the URL:
+HTTPで接続するには、Webブラウザを開き、次のURLを入力します。
 
 ``http://10.1.1.8:8080/start``
 
-You should see a page like this:
+以下のような画面が表示されます:
 
 |image78|
 
-Task 3 – Connect via Jenkins
+Task 3 – Jenkinsでの接続
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To connect to the image via Jenkins we must use the published port specified in the
-``docker run`` command.  To review the command used to start the container was:
+Jenkins経由でイメージに接続するには、 ``docker run``　コマンドで指定された外部用ポート番号を使用する必要があります。前のタスクでは、コンテナを起動するためのコマンドは次のとおりでした。
 
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop
 f5devcentral/f5-super-netops-container:develop-jenkins``
 
-This will publish the standard Jenkins service on ``TCP/8080`` to ``TCP/10000`` on the
-Docker host.  In the case of the Jenkins service the following mapping applies:
+これにより、Jenkinsサービス ``TCP/8080`` がDockerホスト上の ``TCP/10000`` に公開されます。また、Jenkinsサービスの場合、次のマッピングが適用されます。
 
 ``10.1.1.8:10000 -> f5-super-netops-container:8080``
 
-.. NOTE:: There is no bookmark in your browser, you may find it easier to
-   reference later if you create one after connecting the first time
+.. NOTE:: 初回アクセス後に、Webブラウザ上でJenkinsのお気に入りを登録することを推奨します。
 
-To connect via HTTP open a web browser and enter the URL:
+HTTPで接続するには、Webブラウザを開き、次のURLを入力します。
 
 ``http://10.1.1.8:10000``
 
-You should see a page like this:
+以下のような画面が表示されます:
 
 |image89|
 

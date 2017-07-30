@@ -5,65 +5,55 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Install the f5-postman-workflows Framework
+Lab |labmodule|\.\ |labnum|\: 「f5-postman-workflows」フレームワークのインストール
 ------------------------------------------------------------------------
 
-In this lab you will walk through installing the f5-postman-workflows
-framework into the Postman REST Client.
+このラボでは、「f5-postman-workflows」フレームワークを「Postman REST Client」にインストールします。
 
-Task 1 - Import the f5-postman-workflows Postman Collection
+Task 1 - Postman Collectionへの「f5-postman-workflows」インポート
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this task you will Import a Postman Collection that contains Installation
-helpers, Examples and a automated Test Framework.  The collection is installed
-from the f5-postman-workflows GitHub repository.
+このタスクでは、インストールヘルパー関数、サンプル、自動テストフレームワークを含むPostman Collectionをインポートします。このコレクションは、「f5-postman-workflows」 のGitHubリポジトリからインストールされます。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Open the Postman Client on your jumphost by clicking the |image8| icon
-#. Click the 'Import' button in the top left of the Postman window
-#. Click the 'Import from Link' tab.  Paste the following URL into the
-   text box and click 'Import'
+#. ジャンパポストで、　|image8| アイコンをクリックし、Postmanクライアントを開きます。
+#. Postman画面の左上にある「インポート」ボタンをクリックします。
+#. 「Import from Link」タブをクリックします。テキストボックスに次のURLを貼り付け、「インポート」をクリックします。
 
    ``https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/F5_Postman_Workflows.postman_collection.json``
 
-#. You should now see a collection named ``F5_Postman_Workflows`` in your
-   Postman Collections sidebar
+#. Postman Collectionsのサイドバーに「F5_Postman_Workflows」という名前のCollectionが表示されます。
 
-Task 2 - Install f5-postman-workflows into your Postman Client
+Task 2 - Postmanクラインとに「f5-postman-workflows」フレームワークをインストール
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To utilize the helper functions the framework include we must install those
-functions into the Postman Client.  The installation helpers perform the
-following tasks:
+フレームワークに含まれるヘルパー関数を利用するには、これらの関数をPostmanクライアントにインストールする必要があります。インストールヘルパは、次の操作を実行します。
 
-#. Determine the most current version of the framework
-#. Dynamically minify the JavaScript code from the f5-postman-workflows
-   GitHub repository using Google's Closure Compiler
-#. Install the minified JS code into a Postman Global Variable
-#. Set a number of Global variables that allow you to configure various
-   options
+#. フレームワークの最新バージョンを決定
+#. GoogleのClosure Compilerを使用して、「f5-postman-workflows」GitHubリポジトリからのJavaScriptコードを圧縮・最適化
+#. 圧縮されたJavaScriptコードをPostmanグローバル変数にインストール
+#. さまざまなオプションを設定できるグローバル変数を設定
 
-To install the framework complete the following tasks:
+フレームワークをインストールするには、次の手順を実行します:
 
-#. Open the ``F5_Postman_Workflows`` collection
-#. Open the ``Install`` folder
-#. Select the ``Check f5-postman-workflows Version`` item and click 'Send'
-#. Examine the 'Tests' portion of the **RESPONSE**:
+#. ``F5_Postman_Workflows`` collectionを展開します。
+#. ``Install`` フォルダを開きます。
+#. ``Check f5-postman-workflows Version`` の項目を選択し、「Send」をクリックします。
+#. **RESPONSE**　の「Tests」の部分を確認します。
 
    |image79|
 
-#. Select the ``Install/Upgrade f5-postman-workflows`` item and click 'Send'
-#. Examine the 'Tests' again and ensure that Installation was successful:
+#. ``Install/Upgrade f5-postman-workflows`` の項目を選択し、「Send」をクリックします。
+#. 「Tests」を再度確認し、 インストールが成功したことを確認します。
 
    |image80|
 
-#. Click the 'Eye' button in the top right of the Postman window and examine
-   the Global variables that have been populated
+#. Postman画面の右上にある「Eye」ボタンをクリックし、 入力されたグローバル変数を確認します。
 
    |image81|
 
-The f5-postman-workflows framework is now installed in your Postman client.
+以上で、「f5-postman-workflows」フレームワークがPostmanクライアントにインストールされました。
 
 .. |image8| image:: /_static/image008.png
    :width: 0.46171in

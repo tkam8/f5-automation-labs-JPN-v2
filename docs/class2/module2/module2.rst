@@ -1,37 +1,26 @@
-Module 2: f5-postman-workflows & f5-newman-wrapper
+Module 2: 「f5-postman-workflows」フレームワーク & 「f5-newman-wrapper」ツールの紹介
 ==================================================
 
-In the previous modules you may have found the tasks associated with checking
-various response values and populating environment variables very tedious. In
-addition to being tedious these tasks are not fundamentally automatable due
-to the requirement for human interaction.
+以前のモジュールでは、さまざまなレスポンス値のチェックや環境変数の設定に非常に面倒な作業がありました。 退屈であることに加えて、人間の判断をようする作業があるため自動化することはできません。
 
-In order to assist users with automating the F5 BIG-IP platform we have
-developed a set of tools that can be used with the Postman REST Client
-(http://getpostman.com).  The purpose of the tools are:
+F5 BIG-IPプラットフォームの自動化を支援するため、Postman REST Clientで使用できる一連のツールを開発しました。
+(http://getpostman.com).  このツールの目的は以下のとおりです。
 
 - f5-postman-workflows
 
-  - Provide re-usable JavaScript functions that ease testing of API responses
-    and populating environment variables
-  - Implement a delay-based polling mechanism
+  - APIレスポンスのテストと環境変数の設定を容易にする、再利用可能なJavaScript関数を提供すること
+  - 長時間実行操作をポーリングするメカニズムを実装すること
 
 - f5-newman-wrapper
 
-  - Allow users to easily assemble Postman collections into workflows
-  - Enabled integration with third-party tools such as Ansible, Chef & Puppet
+  - ユーザーがPostman Collectionをワークフローに簡単に組み込むことを可能にすること
+  - Ansible、Chef＆Puppetなどのサードパーティのツールとの統合可能にすること
 
-The framework allows collection developers to create automatable collections that
-include full testing of response values, population of environment variables to
-establish chains of requests and time-based polling to allow long-lived API
-processes time to complete.
+このフレームワークを使用すると、応答値のテスト、リクエスト・チェイニング用の環境変数の設定、および長時間実行APIプロセスが完了するまでのポーリング・メカニズムを含むコレクションを作成できます。
 
-Users can then interact with these collections via the Postman GUI client,
-run the collections with the Postman Runner or the Newman CLI client.
+ユーザーは、Postman GUIクライアント、Postman Collection RunnerまたはNewman CLIクライアントを使用して、これらのコレクションを実行できます。
 
-This lab module will walk you through using the tools.  If you are interested
-in developing collections using the f5-postman-workflows framework please visit
-the official GitHub repository at https://github.com/0xHiteshPatel/f5-postman-workflows
+このモジュールは、ツールの使い方を説明します。 「f5-postman-workflows」フレームワークを使用してコレクションに興味がある場合は、公式のGitHubリポジトリをご覧ください。 https://github.com/0xHiteshPatel/f5-postman-workflows
 
 .. toctree::
    :maxdepth: 1

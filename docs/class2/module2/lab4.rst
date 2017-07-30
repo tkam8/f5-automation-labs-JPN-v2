@@ -5,22 +5,18 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Run a workflow with f5-newman-wrapper
+Lab |labmodule|\.\ |labnum|\: 「f5-newman-wrapper」でワークフローを実行
 -------------------------------------------------------------------
 
-In this lab we will use the f5-super-netops-container to run the workflow we
-reviewed in the previous lab.  The advantage of using the f5-super-netops
-Container is that all the tools, collections and frameworks are pre-installed
-and ready to use.
+このラボでは、以前のラボで確認したワークフローを実行するために「f5-super-netops-container」コンテナを使用します。 「f5-super-netops-container」コンテナの利点は、すべてのツール、コレクション、およびフレームワークがプリインストールされ、すぐに使用できることです。
 
-Task 1 - Run a f5-newman-wrapper Workflow
+Task 1 - 「f5-newman-wrapper」ワークフローを実行
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open an SSH session as described in the :ref:`previous lab <lab1_3_1>`
-#. Run ``cd f5-postman-workflows/local``
-#. Run ``cp ../workflows/Wrapper_Demo_1.json .``
-#. Edit the ``Wrapper_Demo_1.json`` file with ``vim`` and enter the ``10.1.1.4`` for
-   the value of the ``bigip_mgmt`` variable
+#. :ref:`previous lab <lab1_3_1>`　で説明されているようにSSHセッションを開きます。
+#. ``cd f5-postman-workflows/local``　を実行します。
+#. ``cp ../workflows/Wrapper_Demo_1.json .``　を実行します。
+#. ``vim``　で ``Wrapper_Demo_1.json``　ファイルを編集し、 ``bigip_mgmt``　変数の値に ``10.1.1.4``　を入力してください。
 
    .. code:: json
 
@@ -30,12 +26,10 @@ Task 1 - Run a f5-newman-wrapper Workflow
                 "bigip_password":"admin"
         },
 
-#. Run ``f5-newman-wrapper Wrapper_Demo_1.json``
-#. Examine the output to see how the workflow was executed.  Notice that
-   the same tests that we saw when using Postman are present during this
-   run.
+#. ``f5-newman-wrapper Wrapper_Demo_1.json``　を実行します。
+#. 出力を調べて、ワークフローの実行方法を確認します。 ここでのテストは、以前にPostmanを使用したときのテストと同じであることに注目してください。
 
-   Example output:
+   出力例:
 
    .. code::
 
@@ -116,10 +110,9 @@ Task 1 - Run a f5-newman-wrapper Workflow
         ├───────────────────────────────────────────────┤
         │ average response time: 16ms                   │
         └───────────────────────────────────────────────┘
-#. Examine the environment variables that were saved at the end of the
-   run by executing ``cat Wrapper_Demo_1-env.json``
+#. ``cat Wrapper_Demo_1-env.json``　を実行し、実行終了時に保存された環境変数を確認します。
 
-   Example output:
+   出力例:
 
    .. code-block:: json
       :linenos:
@@ -166,6 +159,4 @@ Task 1 - Run a f5-newman-wrapper Workflow
         ]
       }
 
-Notice that the ``bigip_version`` and ``bigip_build`` variables were
-saved.  This file is JSON formatted and can easily be used directly
-by other tools to drive further automation.
+``bigip_version``　と ``bigip_build``　変数は保存されています。このファイルはJSONでフォーマットされており、他のツールで直接自動化して簡単に使用することができます。

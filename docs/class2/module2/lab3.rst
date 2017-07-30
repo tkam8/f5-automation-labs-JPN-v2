@@ -5,30 +5,22 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: f5-newman-wrapper Introduction
+Lab |labmodule|\.\ |labnum|\: 「f5-newman-wrapper」ツールの紹介
 ------------------------------------------------------------
 
-As shown in the previous lab we can manually execute collections and folders
-using the Postman GUI to achieve some end result on BIG-IP devices.  While this
-capability is important in a test/prototyping phase we need to ensure we can
-execute these manual steps as an automated process.
+以前のラボで示したように、Postman GUIを使用してコレクションやフォルダを手動で実行し、BIG-IPデバイスの最終結果を得ることができます。 この機能はテスト段階では重要ですが、これらの手動手順を自動プロセスとして実行できるようにする必要があります。
 
-To achieve this goal we can use the f5-newman-wrapper tool.  This tool allows
-a user to specify a workflow in a JSON formatted file that includes Input
-Variables, the collections and folders to execute and various output options
-to provide feedback and run details in a programmatic fashion.
+この目標を達成するために、「f5-newman-wrapper」ツールを使用できます。 このツールを使用すると、ユーザーはワークフローをJSON形式のファイルで指定できます。 このワークフローには、入力変数、実行するコレクションとフォルダ、プログラム的な方法で実行するためのフィードバックを提供するさまざまな出力オプションが含まれます。
 
-The core element of a workflow that can be executed by f5-newman-wrapper is a
-JSON formatted input file.  In this lab we will introduce the file format.
+「f5-newman-wrapper」によって実行可能なワークフローの中核要素は、JSON形式の入力ファイルです。 このラボでは、ファイル形式を紹介します。
 
-Task 1 - Explore the workflow JSON format
+Task 1 - ワークフローの入力ファイルの紹介
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To introduce the format of the workflow file we will use an example that
-recreates the simple workflow we executed manually in the previous lab.  We
-will explore the file in sections followed by showing the whole file.
+ワークフローファイルの形式を紹介するために、以前のラボで手動で実行した簡単なワークフローを再作成する例を使用します。 まず、セクション毎でファイルを解析し、その後ファイル全体を確認します。
 
-Define Name and Description
+
+名前と説明を定義
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: json
@@ -40,11 +32,10 @@ Define Name and Description
    }
 
 
-Define Global Settings for the Run
+実行時のグローバル設定を定義
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section defines how f5-newman-wrapper will run this workflow.  The
-attributes are explained in the table below.
+このセクションでは、「f5-newman-wrapper」がこのワークフローをどのように実行するかを定義します。 属性は以下の表で説明されています。
 
 .. code-block:: json
    :linenos:
@@ -87,16 +78,10 @@ attributes are explained in the table below.
       - The file to save the environment variables at the end of the run to.
 
 
-Define Input Variables
+入力変数を定義
 ~~~~~~~~~~~~~~~~~~~~~~
 
-This section specifies the Input Variables for the workflow.  The name
-``globalVars`` conveys that the variables defined here will be present for
-each request in the defined workflow (the global scope from a workflow
-perspective).  Variables can also be defined within each item in a workflow
-(the local scope from a item perspective).  In the case of a global and local
-variable that is named identically, the local scope variable will take
-precedence.
+このセクションでは、ワークフローの入力変数を指定します。 ``globalVars``　という名前は、ここで定義された変数が、定義されたワークフロー（ワークフローの視点からのグローバルスコープ）の各要求に対して存在することを意味します。 変数は、ワークフローの各項目（項目の観点から見たローカルスコープ）内で定義することもできます。 同じ名前のグローバル変数とローカル変数の場合は、ローカルスコープ変数が優先されます。
 
 .. code-block:: json
    :linenos:
@@ -111,12 +96,10 @@ precedence.
 
 
 
-Define the Workflow Collections and Ordering
+ワークフローコレクションとオーダーの定義
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section defines the workflow and collections and folders that it is
-comprised of.  The ``workflow`` attribute is an ordered array that contains
-objects defining each collection and folder to run.
+このセクションでは、構成されているワークフロー、コレクションおよびフォルダを定義します。 ``workflow``　属性は、実行する各コレクションとフォルダを定義するオブジェクトを含む順序付けられた配列です。
 
 .. code-block:: json
    :linenos:
@@ -140,7 +123,7 @@ objects defining each collection and folder to run.
        ]
    }
 
-Lets look at the item in the workflow that performs authentication:
+認証を実行するワークフロー内の項目を見てみましょう：
 
 .. code-block:: json
    :linenos:
@@ -153,17 +136,11 @@ Lets look at the item in the workflow that performs authentication:
                            }
                    }
 
-The ``name`` attribute specifies the name for this item.  The ``options``
-object specifies the parameters used to execute this particular item.  In our
-case the ``collection`` attribute refers to the file containing the
-``BIGIP_API_Authentication`` collection.  The ``folder`` attribute specifies
-the name of the folder to run in the collection.
+``name``　属性は、このアイテムの名前を指定します。 ``options``　オブジェクトは、この特定の項目を実行するために使用されるパラメータを指定します。 この場合、 ``collection``　属性は ``BIGIP_API_Authentication``　コレクションを含むファイルを参照します。 ``folder``　属性は、コレクション内で実行するフォルダの名前を指定します。
 
-By default all output variables from a collection or folder are passed to the
-next item in the workflow.  This allows us to chain collections together as
-needed to build workflows.
+デフォルトでは、コレクションまたはフォルダのすべての出力変数は、ワークフローの次の項目に渡されます。 これにより、コレクションを連鎖させてワークフローを構築することができます。
 
-Final Workflow JSON
+Workflow JSONファイル全体
 ~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: json

@@ -5,67 +5,49 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: iWorkflow REST Proxy
+Lab |labmodule|\.\ |labnum| – iWorkflow RESTプロキシ
 --------------------------------------------------
 
-In order to enable Imperative automation use cases, iWorkflow includes a
-REST proxy that allows pass-through of REST requests to devices managed
-by iWorkflow. The REST proxy feature allows customers to simplify
-automation by:
+Imperative（命令型）自動化ユースケースを実現するために、iWorkflowによって管理されるBIG-IPデバイスへのREST要求のパススルーを可能にするiWorkflow RESTプロキシ機能が実装されています。以下のRESTプロキシ機能を使用すると、自動化を簡素化できます。
 
--  Providing a centralized API endpoint for BIG-IP infrastructure
+-  BIG-IP用の集中型APIエンドポイント
 
-   -  No need to communicate with individual BIG-IP devices, only with
-      iWorkflow
+   -  個々のBIG-IPデバイスと通信するのではなく、iWorkflowとだけ通信します。
 
--  Simplified authentication
+-  認証の簡略化
 
-   -  Strong authentication can be implemented at iWorkflow rather than
-      on each BIG-IP
+   -  強力な認証は、各BIG-IPではなくiWorkflowで実装できます。
 
--  Simplified RBAC
+-  簡略化されたRBAC
 
-   -  RBAC can be implemented at iWorkflow for all devices rather on
-      individual devices in the environment
+   -  RBACは、環境内の個々のデバイスではなく、iWorkflowで実装できます。
 
-The rest proxy works by passing data sent to a specific URL through to
-the BIG-IP device. The root URL for a particular devices REST proxy is:
+RESTプロキシは、特定のURLに対して送信されたデータをBIG-IPデバイスに渡すことで動作します。 特定のデバイスのRESTプロキシのルートURLは次のとおりです:
 
 ``/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/<device\_uuid>/rest-proxy/``
 
-Any URL segments included after ``…/rest-proxy/`` are forwarded unaltered
-to the BIG-IP device. Query parameters (e.g. ``?expandSubcollections=true``)
-are also passed unaltered along with the request type and request body.
+``…/rest-proxy/`` の後に含まれるURLセグメントはそのままBIG-IPデバイスに転送されます。 クエリーパラメータ（ ``?expandSubcollections=true`` など）も、リクエストタイプとリクエストボディとともに変更されずに渡されます。
 
-Task 1 – Perform REST operations via the REST Proxy
+
+Task 1 – RESTプロキシを通じてREST操作を実行
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task we will perform a sample CRUD operation utilizing the REST
-Proxy. The intent of this task is to show the basic mechanism use to
-perform these tasks. Simply changing the URL to include the iWorkflow
-REST Proxy root for that device could easily change all the Imperative
-operations we have completed in this lab to use the REST Proxy.
+このタスクでは、RESTプロキシを通じてCRUD操作を実行します。 このタスクの目的は、これらのタスクを実行するために使用される基本的なメカニズムを示すことです。
+そのデバイス用のiWorkflow REST Proxyルートを含めるようにURLを編集することで、このラボで完了した命令オペレーションをRESTプロキシを使用するように変更できます。
+特定のデバイス用のiWorkflow REST Proxyルートを含めるように上記URLを変更するだけで、このラボで実施した命令型の操作を簡単に変更し、RESTプロキシを通過させることができます。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Expand the “Lab 2.5 – iWorkflow REST Proxy” folder in the Postman
-   collection.
+#. Postman Collection内の「Lab 2.5 – iWorkflow REST Proxy」のフォルダを展開します。
 
-#. Click the “Step 1: Create pool on BIGIP-A”. Examine the request
-   type, URL and JSON body. Essentially we are performing a POST to
-   the ‘/mgmt/tm/ltm/pool’ collection on BIGIP-A. The last part of the
-   URL includes this URI path (the part after ‘…./rest-proxy/’). The
-   JSON body and all other parameters are passed unaltered. Also,
-   notice that we are still using our iWorkflow Token to authenticate,
-   not the BIG-IP one.
+#. 「Step 1: Create pool on BIGIP-A」をクリックし、リクエストの種類、URL、JSONボディを確認します。
+基本的には、BIGIP-Aの「/mgmt/tm/ltm/pool」コレクションへのPOSTを実行しています。URLの最後の部分には、このURIパス（ ‘…./rest-proxy/’ の後の部分）が含まれます。JSONボディと他のパラメータは変更されずに渡されます。 また、BIG-IPではなく、iWorkflowトークンを使用して認証を行っていることに注目してください。
 
    |image65|
 
-#. Click the “Send” button and examine the response.
+#. 「Send」をクリックし、レスポンスを確認します。
 
-#. Complete steps 2-5 for the remaining items in the “Lab 2.5 – iWorkflow
-   REST Proxy” collection. Examine each request carefully so you
-   understand what is happening.
+#. 「Lab 2.5 – iWorkflow REST Proxy」Collectionの残りの項目については、手順2〜5を実行します。何が起きているのかを理解するために、各レスポンスを確認します。
 
 .. |image65| image:: /_static/image065.png
    :scale: 40%

@@ -5,33 +5,27 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Building Complex Workflows
+Lab |labmodule|\.\ |labnum|\: 複雑なワークフローの構築
 --------------------------------------------------------
 
-In the previous lab we reviewed and ran a very simple workflow.  To support
-more complex use cases f5-newman-wrapper includes features to help build more
-complex workflows.
+以前のラボでは、非常に簡単なワークフローを検討して実行しました。 複雑なユースケースをサポートするために、「f5-newman-wrapper」には、より複雑なワークフローを構築するための機能が含まれています。
 
-These features allow users to:
+これらの機能を使用すると、以下のことを実現できます。
 
-- Create infinitely nested items
-- Rename/remap variables name pre and post run of an item
-- Load variables from a saved environment file
-- Define variables in the global (workflow) or local (item) scope
+- 無限にネストされたアイテムを作成
+- 変数名の名前の変更/再マップ
+- 保存された環境ファイルから変数をロード
+- グローバル（ワークフロー）またはローカル（項目）スコープで変数を定義
 
-To explore all the available options currently implemented please refer to
+現在実装されているすべてのオプションを確認するには、以下のリンクを参照してください。
 https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/framework/f5-newman-wrapper/workflow-schema.json
 
-Task 1 - Explore Nested Workflows & Variable Remapping
+Task 1 - ネストされたワークフローと変数のマッピング
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By using the 'children' array within an item in a workflow you can create
-nested items.  In this task, we will create a more advanced version of the
-workflow we used in the previous lab.  This workflow will perform authentication
-to two BIG-IP devices and then retrieve the software version running on each.
+ワークフロー内のアイテム内の「children」配列を使用することで、ネストされたアイテムを作成できます。このタスクでは、以前のラボで使用したより高度なワークフローを作成します。 このワークフローでは、2台のBIG-IPデバイスに対する認証が実行され、ソフトウェアバージョンが取得されます。
 
-We will implement a workflow that is best depicted by the following branch
-diagram:
+次のブランチ図で示されるワークフローを実装します。
 
 .. code::
 
@@ -47,31 +41,21 @@ diagram:
      |
    Stop
 
-To implement this workflow we need to consider how Input Variables are passed
-to each item in the workflow.  Previously, we saw that the following variables
-are required to the the ``1_Authenticate`` folder in the
-``BIGIP_API_Authentication`` collection:
+このワークフローを実行するには、入力変数がワークフローの各アイテムにどのように渡されるかを理解する必要があります。 以前は、 ``BIGIP_API_Authentication``　コレクションの ``1_Authenticate``　フォルダに以下の変数が必要です。
 
 - ``bigip_mgmt``
 - ``bigip_username``
 - ``bigip_password``
 
-The issue we encounter when building this workflow is that we, at a minimum,
-have different values for ``bigip_mgmt`` because we are trying to communicate
-with two BIG-IP devices.  To address this issue, we could define our input
-variables as follows:
+このワークフローを構築する際の問題は、2つのBIG-IPデバイスと通信しようとしているので、 ``bigip_mgmt``　の値が異なることです。 この問題に対処するために、入力変数を次のように定義することができます。
 
 - ``bigip_a_mgmt = 10.1.1.4``
 - ``bigip_b_mgmt = 10.1.1.5``
 - ``bigip_username = admin``
 - ``bigip_password = admin``
 
-This solves the problem of providing both BIG-IP management addresses, however,
-it introduces another issue.  The ``1_Authenticate`` folder requires that the
-management IP address be passed in the ``bigip_mgmt`` input variable.  To solve
-this issue, we will use variable name remapping to remap a globalVar to a
-different name before the ``1_Authenticate`` folder is run for each BIG-IP
-device.  To illustrate this, we will add more information to our diagram:
+これは、両方のBIG-IP管理アドレスを提供するという問題を解決しますが、
+それは別の問題を提起する。 ``1_Authenticate``　フォルダは、管理IPアドレスが ``bigip_mgmt``　入力変数に渡されることを要求します。 この問題を解決するために、各BIG-IPデバイスに対して ``1_Authenticate``　フォルダを実行する前に、変数名の再マッピングを使って「globalVar」を別の名前に再マップします。 これを説明するために、図に詳細を追加します。
 
 .. code::
 
@@ -98,15 +82,8 @@ device.  To illustrate this, we will add more information to our diagram:
      |
    Stop
 
-We've now addressed our issues regarding defining and passing the BIG-IP
-management address, but have to consider one last problem.  The **output
-variable** of the ``1_Authenticate`` folder is ``bigip_token``.  By default
-f5-newman-wrapper will store all output variables from one folder and
-automatically pass them to the next item.  In this case, an issue occurs because
-the ``Authenticate to BIG-IP B`` item will overwrite the ``bigip_token``
-variable that was outputted by the ``Authenticate to BIG-IP A`` item.  To
-resolve this issue, we can remap variables **AFTER** or post-run of an item.  We
-can modify our diagram to handle this issue like this:
+BIG-IP管理アドレスの定義と渡しに関する問題を解決しましたが、最後の問題を解決する必要があります。 ``1_Authenticate``　フォルダの　**出力変数**　は ``bigip_token``　です。デフォルトでは、「f5-newman-wrapper」はあるフォルダのすべての出力変数を保存し、自動的に次の項目に渡します。 この場合、 ``Authenticate to BIG-IP B``　項目は ``Authenticate to BIG-IP A``　項目で出力された ``bigip_token``　変数を上書きするために発生します。 この問題を解決するために、　**アイテムの実行後**　に変数を再マップすることができます。 以下のように、この問題に対処するために図を編集します。
+
 
 .. code::
 
@@ -135,10 +112,7 @@ can modify our diagram to handle this issue like this:
      |
    Stop
 
-The last step is to perform some additional pre-run remapping to pass the correct
-token to the ``4A_Get_BIGIP_Version`` folder to get our BIG-IP software version.
-Additionally, we will perform some post-run remaps so we can save the output
-variables for each device:
+最後のステップは、正しいトークンを再マッピングを実行し、正しいトークンを ``4A_Get_BIGIP_Version``　フォルダに渡し、BIG-IPソフトウェアのバージョンを取得することです。 さらに、各デバイスの出力変数を保存できるように、実行後の再マップを行います。
 
 .. code::
 
@@ -180,22 +154,14 @@ variables for each device:
      |
    Stop
 
-.. NOTE:: Collections and folders that are designed to act on multiple devices
-   are designed to automatically use the ``bigip_a_...`` and ``bigip_b_...``
-   syntax to avoid having to remap variables.  In this case the
-   ``BIGIP_Operational_Workflows`` collection is designed to perform actions
-   on **one** device at a time, thus the need for remapping of the
-   ``bigip_token`` input variables.
+.. NOTE:: 複数のデバイス上で動作するように設計されているコレクションとフォルダは、変数を再マップする必要を避けるために、自動的に ``bigip_a _... ``　と ``bigip_b _... ``　構文を使います。 しかし、``BIGIP_Operational_Workflows``コレクションの場合は、 **一度に一つ** のデバイスに対してアクションを実行するように設計されているので、 ``bigip_token``　入力変数を再マッピングする必要があります。
 
-.. NOTE:: Another option that is available to solve this issue is to define all
-   variables in the local scope for each item.  This method is not preferred
-   because it decreases portability and increases complexity in definition of
-   input variables.
+.. NOTE:: この問題を解決するために使用できる別のオプションは、各項目のローカルスコープ内のすべての変数を定義することです。 この方法は、移植性が低下し、入力変数の定義が複雑になるため好ましくありません。
 
-Task 2 - Build Complex Workflow JSON
+Task 2 - 複雑なワークフローJSONファイルを構築する
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Define Global Settings & Variables:
+グローバル設定と変数を定義:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: json
@@ -220,13 +186,10 @@ Define Global Settings & Variables:
      "envOutputFile":"Wrapper_Demo_2-env.json"
    }
 
-Define Authentication Items
+認証項目を定義：
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: As shown below, we can use the ``skip: true`` attribute to signal
-   f5-newman-wrapper to not run that particular item.  The items ``children``
-   will still be processed.  The ``skip`` attribute can be used to create a
-   container for similar requests.
+.. NOTE:: 以下に示すように、 ``skip：true``　属性を使って「f5-newman-wrapper」にその特定の項目を実行しないように通知することができます。 項目「children」は依然として処理されます。 ``skip`` 属性は、同様の要求のためのコンテナを作成するために使用できます。
 
 .. code-block:: json
    :linenos:
@@ -269,7 +232,7 @@ Define Authentication Items
      ]
    }
 
-The JSON above implements the following part of our branch diagram:
+上記のJSONは、ブランチ図の次の部分を実装しています:
 
 .. code::
 
@@ -284,10 +247,9 @@ The JSON above implements the following part of our branch diagram:
        |  |      Run: 1_Authenticate folder
        |  | Post-run: Remap bigip_token -> bigip_b_token
 
-Specifically, note the use of the ``skip`` attribute on line 5 to create a
-container to group the items together.
+具体的には、項目をまとめてグループ化するためのコンテナを作成するために、5行目の ``skip`` 属性の使用に注目してください。
 
-Define Get Software Version Items
+「ソフトウェアバージョンを入手する」項目を定義
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: json
@@ -334,7 +296,7 @@ Define Get Software Version Items
       ]
    }
 
-The JSON above implements the following part of our branch diagram:
+上記のJSONは、ブランチ図の次の部分を実装しています：
 
 .. code::
 
@@ -353,7 +315,7 @@ The JSON above implements the following part of our branch diagram:
           | Post-run: Remap bigip_version -> bigip_b_version
           | Post-run: Remap bigip_build -> bigip_b_build
 
-Final Workflow JSON
+Workflow JSONファイル全体
 ~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: json
@@ -448,14 +410,13 @@ Final Workflow JSON
       ]
     }
 
-Task 3 - Run the Workflow
+Task 3 - ワークフローを実行
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open an SSH session as described in the :ref:`previous lab <lab1_3_1>`
-#. Run ``cd f5-postman-workflows/local``
-#. Run ``cp ../workflows/Wrapper_Demo_2.json .``
-#. Edit the ``Wrapper_Demo_2.json`` file and enter you BIG-IP management
-   addresses
+#. :ref:`previous lab <lab1_3_1>`　で説明されているようにSSHセッションを開きます。
+#. ``cd f5-postman-workflows/local``　を実行します。
+#. ``cp ../workflows/Wrapper_Demo_2.json .``　を実行します。
+#. ``Wrapper_Demo_2.json``　ファイルを編集し、BIG-IP管理アドレスを入力してください。
 
    .. code-block:: json
       :linenos:
@@ -469,10 +430,10 @@ Task 3 - Run the Workflow
         }
       }
 
-#. Run ``f5-newman-wrapper Wrapper_Demo_2.json``
-#. Examine the output to see how the workflow was executed.
+#. ``f5-newman-wrapper Wrapper_Demo_2.json``　を実行します。
+#. 出力を調べて、ワークフローの実行方法を確認します。
 
-   Example output:
+   出力例:
 
 
 
@@ -628,9 +589,7 @@ Task 3 - Run the Workflow
       └───────────────────────────────────────────────┘
       [Wrapper_Demo_2-2017-03-30-19-22-52] run completed in 3s, 316.921 ms
 
-#. Examine the environment variables that were saved at the end of the
-   run by executing ``cat Wrapper_Demo_2-env.json``. The resulting BIG-IP
-   software versions are now present and have been highlighted below.
+#. ``cat Wrapper_Demo_2-env.json``　を実行し、実行終了時に保存された環境変数を確認します。 BIG-IPソフトウェアのバージョンが以下に表示されています。
 
    Example output:
 

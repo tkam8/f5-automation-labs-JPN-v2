@@ -5,31 +5,26 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Install Docker Community Edition (CE)
+Lab |labmodule|\.\ |labnum|\: Docker Community Edition (CE)のインストール
 -------------------------------------------------------------------
 
-To use the f5-super-netops-container you first need to install Docker
-Community Edition on your system.
+f5-super-netops-containerを使用するには、まずシステムにDocker Community Editionをインストールする必要があります。
 
-.. NOTE:: If you are using an F5 provided lab environment, Docker CE has already
-          been installed on the host named 'Docker Server'.  Please SSH
-          to that host a execute all ``docker`` commands there.
+.. NOTE:: F5が提供するラボ環境を使用している場合、Docker CEはすでに「Docker Server」という名前のホストにインストールされています。 そのホストにSSHですべての ``docker`` コマンドを実行してください。
 
-Task 1 – Install Docker CE
+Task 1 – Docker CEをインストール
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please follow the instructions at https://docs.docker.com/engine/installation/
-to install Docker CE.
+Docker CEをインストールするには、以下のリンクをご参照ください。
+https://docs.docker.com/engine/installation/
 
-Once you have completed installed and successfully run the ``hello-world``
-test you can continue to the next lab.
+インストールが完了し、 ``hello-world``　テストを正常に実行したら、次のラボに進みます。
 
-To test your setup with the ``hello-world`` container, you just need to run the
-following command
+``hello-world``　コンテナの設定をテストするには、以下のコマンドを実行してください。
 
 ``docker run hello-world``
 
-Example output:
+出力例：
 
 .. code::
 
@@ -61,16 +56,12 @@ Example output:
     https://docs.docker.com/engine/userguide/
 
 
-.. NOTE:: The ``--rm`` option will delete the container as soon as it stops
-   running.
+.. NOTE:: ``--rm`` オプションを使うと、コンテナは停止するとすぐに削除されます。
 
-   If you see this message: *Cannot connect to the Docker daemon. Is the docker
-   daemon running on this host?* , it is likely that you don't have enough
-   privileges with your user, try to use sudo when executing docker commands.
+このメッセージが表示された場合： *Cannot connect to the Docker daemon. Is the docker
+   daemon running on this host?* 、ユーザー特権を確認してください。 また、ドッカーコマンドを実行するときにsudoを使用してみてください。
 
-   If you want to remove the hello-world container, you can run the command
-   ``sudo docker rmi hello-world``
-   If your container is running, you cannot remove the image.
-   You can issue the following commands in that case (this will stop ALL your container
-   instances):
+hello-worldコンテナを削除するには、 ``sudo docker rmi hello-world`` コマンドを実行します。
+コンテナが実行中の場合、イメージを削除することはできません。 その場合、次のコマンドを発行できます（これにより、すべてのコンテナインスタンスが停止します）。
+
    ``sudo docker stop $(docker ps -aq)``

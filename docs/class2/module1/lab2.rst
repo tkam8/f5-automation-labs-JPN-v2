@@ -5,25 +5,23 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Obtain & Start the f5-super-netops-container Image
+Lab |labmodule|\.\ |labnum|\: 「f5-super-netops-container」イメージのダウンロードと起動
 --------------------------------------------------------------------------------
 
-In this lab we will use the ``docker`` cli tools to obtain and start the
-f5-super-netops-container image.
+このラボでは、「f5-super-netops-container」イメージをダウンロードして起動するための ``docker`` cliツールを使用します。
 
-Task 1 – Obtain the container image
+Task 1 – コンテナイメージをダウンロード
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Open a Command Prompt
+#. コマンドプロンプトを開きます。
 
-.. NOTE:: If you are using an F5 provided lab environment please SSH to the
-      'Docker Server' host and execute the following commands.
+.. NOTE:: F5提供のラボ環境を使用している場合は、SSHで「Docker Server」ホストに接続し、次のコマンドを実行してください。
 
-#. Execute ``docker pull f5devcentral/f5-super-netops-container:develop-jenkins``
+#. ``docker pull f5devcentral/f5-super-netops-container:develop-jenkins``　を実行します。
 
-   Example output:
+   出力例:
 
    .. code::
 
@@ -58,9 +56,9 @@ Perform the following steps to complete this task:
       Digest: sha256:27563f98bf58c9d26eb5989acaf540a9ad7fb1806e4a4c373ad28769ebe63ef4
       Status: Downloaded newer image for f5devcentral/f5-super-netops-container:develop-jenkins
 
-#. Execute ``docker images``
+#.  ``docker images``　を実行します。
 
-   Example output:
+   出力例:
 
    .. code::
 
@@ -71,38 +69,30 @@ Perform the following steps to complete this task:
 Task 2 – Start the container image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To start the container we will execute the command:
+コンテナを起動するには、次のコマンドを実行します。
 
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins``
 
-The ``-p`` option publishes a L4 port from the container to the host.  For
-example the ``-p 8080:80`` option will redirect port ``8080`` on the host system
-to port ``80`` in the container.
+``-p``　オプションで、外部からアクセスされるポート番号:コンテナ側のポート番号と指定し、ポートフォワードをさせます。
+例えば、 ``-p 8080：80`` オプションは、ホスト側のポート ``8080`` をコンテナのポート ``80`` にリダイレクトします。
 
-The ``-it`` option will make the session interactive and allocate a pseudo-TTY
+``-it`` オプションをつけることでコンテナ内で操作できます。
 
-The ``-e`` option will specify a Github Branch, in this case we are pulling from ``develop``
+``-e`` [変数名]=[値]オプションで、GitHubのブランチ（Master/Develop等）を指定します。 このラボでは、 ``develop``　を指定します。
 
-The ``f5devcentral/f5-super-netops-container:develop-jenkins`` option is the name
-associated with the image we obtained in Task 1.
+``f5devcentral/f5-super-netops-container:develop-jenkins`` オプションは、前のタスクでダウンロードしたイメージの名前です。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Execute ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins``
+#. ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins``　を実行します。
 
-   .. NOTE:: The image requires Internet connectivity to download the latest
-      versions of tools and documentation.  Please ensure you have proper
-      connectivity from your host prior to starting the image.  If you need
-      to use a proxy please refer to the documentation at
+   .. NOTE:: このイメージには、ツールとドキュメントの最新バージョンをダウンロードするためにインターネットに接続する必要があります。 イメージを起動する前に、ホストからのインターネットアクセスがあることを確認してください。プロキシを使用する必要がある場合は、以下のドキュメントを参照してください。
+   
       https://docs.docker.com
 
-   The image will now start and load resources from the Internet.  This process
-   may take a while depending on the speed of your connection.  When the startup
-   process is complete you will be presented with a ``root`` user prompt.  You
-   can interact with the image with standard Linux commands.  In the next lab
-   we will connect to the image via SSH and HTTP.
+   このコマンドで、イメージが起動され、インターネットからリソースがロードされます。この処理には、接続速度に応じて時間がかかることがあります。起動プロセスが完了すると、 `` root`` ユーザプロンプトが表示されます。標準のLinuxコマンドを使用してイメージとやり取りすることができます。次のラボでは、SSHとHTTP経由でイメージに接続します。
 
-   Example startup output:
+   起動時の出力例：
 
    .. code::
 
@@ -199,22 +189,17 @@ Perform the following steps to complete this task:
 
       [root@f5-super-netops] [/] #
 
-Task 3 - Detach/Re-attach the Container
+Task 3 - コンテナの取り外し/再取り付け（Detach/Attach）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When running containers it's important to understand that it will exit if the
-foreground process (in this case the shell) exits.  For example, if you typed
-the ``exit`` command in the running container it will shutdown.  In order to
-avoid this you should detach from the container once it has completed booting.
-You can still perform functions by using SSH to access the container as
-explained in the next lab.
+フォアグラウンドプロセス（この場合はシェル）が終了すると、コンテナが終了することを理解することが重要です。 たとえば、実行中のコンテナに `` exit`` コマンドを入力した場合、シャットダウンプロセスが開始されます。 これを避けるには、起動が完了したらコンテナから取り外す必要があります。 その後、SSHでコンテナに接続し、コンテナ内の操作を実行することができます。 これについては次のラボで説明します。
 
-Detach the Container
+コンテナを取り外し
 ^^^^^^^^^^^^^^^^^^^^
 
-#. Enter ``Ctrl+p+q`` in the running TTY.
+#. 起動中のTTY（仮想端末）で ``Ctrl+p+q`` を押します。
 
-   Example output:
+   出力例:
 
    .. code::
 
@@ -223,9 +208,9 @@ Detach the Container
       [root@f5-super-netops] [/] # <enter Ctrl+p+q>
       hostname:~ user$
 
-#. Verify the container is still running by entering ``docker ps``
+#. ``docker ps``　を入力し、コンテナがまだ起動していることを確認します。
 
-   Example output:
+   出力例:
 
    .. code::
 
@@ -234,12 +219,12 @@ Detach the Container
       CONTAINER ID        IMAGE                                                    COMMAND                  CREATED             STATUS              PORTS                                                                                      NAMES
       4cf75944bfbc        f5devcentral/f5-super-netops-container:develop-jenkins   "/init /snopsboot/..."   2 minutes ago       Up 2 minutes        8000/tcp, 50000/tcp, 0.0.0.0:2222->22/tcp, 0.0.0.0:8080->80/tcp, 0.0.0.0:10000->8080/tcp   loving_montalcini
 
-Re-attach the Container
+コンテナを再取り付け
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Execute ``docker ps``
+#. ``docker ps``　を実行します。
 
-   Example output:
+   出力例:
 
    .. code::
 
@@ -250,8 +235,7 @@ Re-attach the Container
       |------------|
         ^- YOUR CONTAINER ID
 
-#. Copy the value under the ``CONTAINER ID`` column that correspond to the
-   f5devcentral/f5-super-netops-container:develop-jenkins image.
-#. Execute ``docker attach <container_id>``
-#. You may have to hit ``<Enter>`` to display the command prompt
-#. Detach the container again by entering ``<Ctrl+p+q>``
+#. ``CONTAINER ID``　カラムに、「f5devcentral/f5-super-netops-container:develop-jenkins」イメージに該当する値をコピーします。
+#. ``docker attach <container_id>`` を実行します。
+#. コマンドプロンプトを表示するには ``<Enter>``　を押す必要があります。
+#. ``<Ctrl+p+q>``　入力し、もう一度コンテナを取り外します。

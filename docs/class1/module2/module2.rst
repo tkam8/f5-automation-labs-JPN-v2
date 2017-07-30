@@ -1,41 +1,29 @@
-Module 2: iWorkflow
-===================
+Module 2 – iWorkflow
+====================
 
-In this module we will explore how to use F5’s iWorkflow platform to
-further abstract application services and deliver those services to
-tenants. iWorkflow has two main purposes in the Automation &
-Orchestration toolchain:
+このモジュールでは、F5のiWorkflowプラットフォームを使用してアプリケーションサービスを抽象化し、それらのサービスをテナントに提供する方法について説明します。
+iWorkflowはAutomation＆Orchestrationのツールチェーンに2つの主な目的を持っています：
 
--  Provide simplified but customizable Device Onboarding workflows
+-  簡素化されたカスタマイズ可能なデバイスオンボーディングのワークフローを提供すること
 
--  Provide a tenant/provider interface for L4 – L7 service delivery
+-  L4 - L7サービスデリバリのためにテナント/プロバイダインタフェースを提供すること
 
-When moving to an iWorkflow based toolchain it’s important to understand
-that L1-3 Automation (Device Onboarding, Networking, etc) and L4-7
-(Deployment of Virtual Servers, Pools, etc) are separated and delivered
-by different features.
+iWorkflowベースのツールチェーンに移行する際には、L1-3の自動化(Device Onboarding, Networking, 等)とL4-7の自動化(Deployment of Virtual Servers, Pools, 等)が分離され、
+異なる機能によって提供されることを理解することが重要です。
 
-L1-3 Networking and Device Onboarding are delivered by ‘Cloud
-Connectors’ that are specific to the third party technology ecosystem
-(e.g. vCMP, AWS, Cisco APIC, VMware NSX, BIG-IP, etc).
+L1-3ネットワークとデバイスオンボーディングは、サードパーティのテクノロジエコシステムに固有の「Cloud　Connectors」によって提供されます。
+(例： vCMP, Cisco APIC, VMware NSX, BIG-IP, 等)
 
-L4-7 service delivery is accomplished by:
+L4-7サービスの提供は、次のモデルによって実現できます:
 
--  Declarative: Consuming F5 iApp templates from BIG-IP devices and
-   creating a Service Catalog.
+-  宣言型(Declarative)モデル：BIG-IPデバイス上のF5 iAppテンプレートを利用してサービスカタログを作成すること
 
--  Imperative: Consuming the iWorkflow REST Proxy to drive API calls to
-   BIG-IP devices
+-  命令型(Imperative)モデル：iWorkflow RESTプロキシを利用してBIG-IPデバイスへのAPI呼び出しを駆動すること
 
-The labs in the module will focus on the high level features in place to
-achieve full L1-7 automation. As mentioned above, iApps are a key
-component of this toolchain. For our purposes we will use the f5.http
-iApp to create simple examples. For more advanced use cases it’s often
-required to use a ‘Declarative’ or ‘Deployment-centric’ iApp template. A
-supported template of this nature called the App Services Integration iApp is
-available at
-https://github.com/F5Networks/f5-application-services-integration-iApp for this
-purpose.
+このモジュールのラボでは、L1-7の完全自動化を実現するための高度な機能に焦点を当てます。 上記のように、iAppsはこのツールチェーンの主要コンポーネントです。
+従って、f5.httpというiAppを使用してシンプルな導入例を作成します。
+より高度なユースケースの場合は、「Declarative」または「Deployment-centric」(デプロイメント中心)のiAppテンプレートを使用する必要があります。
+この種のサポートされているテンプレートの例は、App Services Integration iAppと呼ばれ、https://github.com/F5Networks/f5-application-services-integration-iAppで入手できます。
 
 .. toctree::
    :maxdepth: 1

@@ -5,56 +5,37 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Discover BIG-IP Devices
+Lab |labmodule|\.\ |labnum| – BIG-IPデバイスのディスカバリ
 -----------------------------------------------------
 
-In order for iWorkflow to interact with a BIG-IP device it must be
-discovered by iWorkflow. The device discovery process leverages the
-existing CMI Device Trust infrastructure on BIG-IP. Currently there is a
-limitation that a single BIG-IP device can only be ‘discovered’ by ONE
-of iWorkflow or BIG-IQ CM at a time. In this lab will we discover the
-existing BIG-IP devices from your lab environment.
+iWorkflowがBIG-IPデバイスとやり取りするためには、iWorkflowでデバイスディスカバリを実施する必要があります。 デバイスディスカバリのプロセスは、BIG-IP上の既存のCMIデバイス・トラスト・インフラストラクチャを採用します。 現在のところ、BIG-IPデバイスがiWorkflowまたはBIG-IQ CMのどちらかでのみ ‘discover’ できるという制限があります。 このラボでは、ラボ環境から既存のBIG-IPデバイスディスカバリを行います。
 
-Task 1 – Discover BIG-IP Devices
+Task 1 – BIG-IPデバイスディスカバリを実施
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Expand the “Lab 2.2: Discover & License BIG-IP Devices” folder in the
-   Postman collection
+#. Postman Collection内の「Lab 2.2: Discover & License BIG-IP Devices」フォルダを展開します。
 
-#. Open a Google Chrome window/tab to your iWorkflow device
-   (https://10.1.1.6) and login with default credentials (admin/admin).
-   You can use this window to monitor actions while they are being
-   performed in Postman. Find the ‘Devices’ pane and make if viewable if
-   it isn’t already.
+#. Google Chromeのウィンドウ/タブをiWorkflowデバイス（https://10.1.1.6）にアクセスし、デフォルトの資格情報（admin/admin）でログインします。この画面で、Postmanで実行されるアクションを監視できます。 まず、「Devices」ペインを表示しておきます。
 
-#. Click the “Step 1: Discover BIGIP-A Device” item in the Postman
-   collection. This will request will perform a POST to the
-   ``/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices``
-   worker to perform the device discovery process. Examine the JSON body
-   so you understand what data is sent to perform the discovery process:
+
+#. Collection内の「Step 1：Discover BIGIP-A Device」をクリックします。これにより、 ``/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices``  ワーカーにデバイスディスカバリのプロセスを実行するためのPOSTが実行されます。JSONボディを調べ、ディスカバリプロセスに必要なデータを確認してください。
 
    |image51|
 
-#. Click the ‘Send’ button. Examine the response and monitor the
-   iWorkflow Chrome window you opened previously.
+#. 「Send」ボタンをクリックします。応答を確認し、以前に開いたiWorkflow GUIを監視します。
 
    |image52|
 
-#. Copy the ‘uuid’ attribute for BIGIP-A and populate the
-   ‘iwf\_bigip\_a\_uuid’ Postman environment variable with the
-   value:
+#. BIGIP-Aの「uuid」属性をコピーし、「iwf\_bigip\_a\_uuid」Postmanの環境変数に値を設定します。
 
    |image53|
    |image54|
 
-#. Click the “Step 2: Discover BIGIP-B Device” item in
-   the collection.
+#. Collection内の「Step 2: Discover BIGIP-B Device」項目をクリックします。
 
-#. Click the “Step 3: Get Discovered Devices” item in the collection.
-   We will GET the devices collection and verify that both BIG-IP
-   devices show a ‘state’ of ‘ACTIVE’:
+#. Collection内の「Step 3: Get Discovered Devices」項目をクリックします。DevicesのCollectionをGETし、両方のBIG-IPデバイスの「state」が「ACTIVE」となっていることを確認します。
 
    |image55|
 

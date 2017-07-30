@@ -1,18 +1,17 @@
-Class 2: Building Continuous Delivery Pipelines
+Class 2: 継続的デリバリ・パイプラインの構築
 ================================================
 
-This class covers the following topics:
+このコースでは以下のトピックが含まれています:
 
-- Continuous Integration (CI)/Continuous Delivery (CD) Concepts
-- F5 Automation Tools:
+- F5 Automationツールの紹介:
 
-  - The f5-super-netops-container
-  - Collections and the f5-postman-workflows extension to Postman
-  - Automation Workflows using f5-newman-wrapper
+  - 「f5-super-netops-container」オートメーション用コンテナ
+  - PostmanのCollections及びF5のPostman拡張機能「f5-postman-workflows」
+  - f5-newman-wrapperを使用したAutomationワークフロー
+  
+- Jenkinsを用いたCI/CDパイプラインの構築 
 
-- Building CI/CD Pipelines with Jenkins
-
-Expected time to complete: **3 hours**
+完了までの所要時間: **3時間**
 
 .. toctree::
    :maxdepth: 1

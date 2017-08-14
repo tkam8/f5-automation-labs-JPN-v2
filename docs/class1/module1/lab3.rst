@@ -104,7 +104,7 @@ Task 2 – DNS/NTP設定の変更
 
 #. Collection内の ``Step 5: Get System NTP Settings`` をクリックします。``Send`` をクリックし、現在の設定を確認します。
 
-#. Collection内の ``Step 6: Set System NTP Settings`` をクリックします。JSONボディを確認し、ホスト名 ``0.pool.ntp.org`` と ``1.pool.ntp.org`` を持つNTPサーバが ``servers`` 属性に含まれていることを確認してください。（別のJSON配列！）
+#. Collection内の ``Step 6: Set System NTP Settings`` をクリックします。JSONボディを確認し、ホスト名 ``0.pool.ntp.org`` と ``1.pool.ntp.org`` を持つNTPサーバが ``servers`` 属性に含まれていることを確認してください。
 
 #. ``Send`` ボタンをクリックし、変更が正常に反映されたことを確認します。
 

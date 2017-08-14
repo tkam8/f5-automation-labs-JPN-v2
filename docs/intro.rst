@@ -2,15 +2,14 @@ Welcome
 -------
 
 F5's Automation, Orchestration and Programmability Trainingへようこそ！
-このラボは、F5が提供するさまざまなプログラマビリティツールを活用するSuper NetOps及びDevOpsというオートメーション・エンジニアを対象しています。
-事前に構築されたラボ環境が必要な場合は、F5にお問い合わせください。
+このラボは、F5が提供する様々なプログラマビリティツールを活用するSuper NetOps及びDevOpsエンジニアを対象としています。F5のハンズオントレーニング環境を利用されたい方は、F5までお問い合わせください。
 
-このラボで使うプログラマビリティツールは、完全なDevOps CI / CDパイプラインを活用しており、
-以下のGitHubリポジトリから取得可能です：
+このラボで使うプログラマビリティツールは、完全なDevOps CI(Continuous Integration)/CD(Continuous Delivery) パイプラインを活用しており、
+以下のGitHubリポジトリから取得可能です。
 
 https://github.com/f5devcentral/f5-automation-labs/
 
-バグまたは新規機能のリクエストは、このリポジトリの　`Issue <https://github.com/f5devcentral/f5-automation-labs/issues>`_　を開くことによって行うことができます。
+バグ修正や新機能追加のリクエストは、このリポジトリの `Issue <https://github.com/f5devcentral/f5-automation-labs/issues>`_ を開くことによって行うことができます。
 
 
 はじめに
@@ -18,13 +17,13 @@ https://github.com/f5devcentral/f5-automation-labs/
 インストラクターの指示に従い、ジャンプホストにアクセスしてください。
 
 .. NOTE::
-	このラボではすべての作業は、Windowsすべての作業は、Windows Jumphostから行います。
-	また、ローカルシステムで特別なアプリケーションをインストールする必要はありません。
+	このラボでは、すべての作業はWindows Jumphostから行います。
+	また、ローカルのPCに特別なアプリケーションをインストールする必要はありません。
 
 ネットワーク構成
 ------------
 	
-このラボのネットワークトポロジはデータプレーンのトラフックフローではなくコントロールプレーンのプログラマビリティに焦点を当てるので、データプレーンは非常にシンプルです。ラボ環境に以下のコンポーネントが含まれています。
+このラボのネットワークトポロジは、データプレーンのトラフックフローではなくコントロールプレーンのプログラマビリティに焦点を当てるので、データプレーンは非常にシンプルになっています。ラボ環境には以下のコンポーネントが含まれています。
 
 -  2 x F5 BIG-IP VE (v12.1)
 
@@ -36,7 +35,7 @@ https://github.com/f5devcentral/f5-automation-labs/
 
 -  1 x Windows Jumphost
 
-次の表に、すべてのコンポーネントのVLAN、IPアドレス、およびクレデンシャルを示します。
+各コンポーネントのVLAN、IPアドレス、およびID/PASSWORDは、以下をお使い下さい。
 
 .. list-table::
     :widths: 20 40 40
@@ -45,7 +44,7 @@ https://github.com/f5devcentral/f5-automation-labs/
 
     * - **Component**
       - **VLAN/IP Address(es)**
-      - **Credentials**
+      - **ID/PASSWORD**
     * - Windows Jumphost
       - - **Management:** 10.1.1.250
         - **Internal:** 10.1.10.250

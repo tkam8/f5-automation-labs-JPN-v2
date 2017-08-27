@@ -27,7 +27,7 @@ Task 1 – TMOS Web InterfaceのAPIを通して、iControl REST APIを学習し�
 
    |image3|
 
-#. ``/mgmt/tm/net/route-domain`` という **Collection** を見つけてクリックしてください。
+#. ``/mgmt/tm/net/route-domain`` という **Organizing Collection** を見つけてクリックしてください。
 
 #. ルートドメインコレクションの一部である **Resources** のリストが表示されます。ご覧のとおり、 ``0`` のデフォルトルートドメインがリストされます。 |image4| ボタンをクリックすると、新しいオブジェクトを作成することもできます。また、 |image5| ボタンを使用してリソースを削除したり、 |image6| ボタンを使用してリソースを編集したりすることもできます。
 

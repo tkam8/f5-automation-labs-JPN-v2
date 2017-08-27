@@ -20,11 +20,11 @@ iWorkflowは、iAppテンプレートのSource of Truth（信頼できる唯一�
 
 .. NOTE:: BIG-IPデバイス上のiAppテンプレートのインストールは、 **初回** 展開時に行われます。
 
-App Services iAppテンプレート展開を支援するために、Postman Collectionが作成されています。 CollectionをPostmanにインポート後に、iWorkflowにテンプレートをインストールします。
+App Services iAppテンプレート展開を支援するために、Postman ``Collections`` が作成されています。  ``Collections`` をPostmanにインポート後に、iWorkflowにテンプレートをインストールします。
 
 このタスクを完了するには、次の手順を実行します:
 
-#. 「Import」 -> 「Import from Link」から、次のCollection URLをインポートします:
+#. ``Import`` -> ``Import from Link`` から、次のCollection URLをインポートします:
 
    .. parsed-literal::
 
@@ -35,7 +35,7 @@ App Services iAppテンプレート展開を支援するために、Postman Coll
 #. このリクエストのボディを確認することはできますが、iAppのコードの改行や空白が取り除かれているため、読みにくい場合があります。
 　　　このコレクションは、インストールを簡単にするために既に設定されている基本変数( ``iwf_mgmt`` and ``iwf_auth_token`` )を使用します。
 
-#. 「Send」ボタンをクリックし、iAppをインストールします。
+#. ``Send`` ボタンをクリックし、iAppをインストールします。
 
 Task 2 – f5-http-lb L4-7サービステンプレートを作成
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,11 +50,11 @@ iWorkflow上のL4-L7サービスデプロイメントは、L4-L7サービステ�
 
 このタスクを完了するには、次の手順を実行します:
 
-#. 「AppSvcs_iApp_Workflows」Collection内の「3_iWorkflow_Service_Templates_Examples」フォルダを展開します。
+#. ``AppSvcs_iApp_Workflows`` の ``Collections`` 内の ``3_iWorkflow_Service_Templates_Examples`` フォルダを展開します。
 
-#. Collection内の「f5-http-lb Template」項目をクリックします。このリクエストはあらかじめ作成されており、App Services iAppを使った新しいサービステンプレートを作成します。「Send」ボタンをクリックし、テンプレートを作成します。
+#.  ``Collections`` 内の ``f5-http-lb Template`` 項目をクリックします。このリクエストはあらかじめ作成されており、App Services iAppを使った新しいサービステンプレートを作成します。 ``Send`` ボタンをクリックし、テンプレートを作成します。
 
-#. 新しいChromeタブでiWorkflow（https://10.1.1.6）にアクセスし、admin/admin資格情報でログインします。「Service Templates」ペインを展開し、「f5-http-lb」 テンプレートをダブルクリックします。 さまざまなデフォルト値が入力されていること確認してください（たとえば、 pool\_\_port 変数のポート「80」）。また、一部のフィールドには 「Tenant Editable」とマークされています。
+#. 新しいChromeタブでiWorkflow（https://10.1.1.6）にアクセスし、admin/admin資格情報でログインします。 ``Service Templates`` ペインを展開し、 ``f5-http-lb`` テンプレートをダブルクリックします。 さまざまなデフォルト値が入力されていること確認してください（たとえば、 pool\_\_port 変数のポート ``80`` ）。また、一部のフィールドには ``Tenant Editable`` とマークされています。
 
    |image59|
 
@@ -68,13 +68,13 @@ Task 2 – テナントのL4-L7 サービス展開
 このタスクを完了するには、次の手順を実行します:
 
 #. 新しいChromeタブでiWorkflow（https://10.1.1.6）にアクセスし、Username: tenant, Password: tenant資格情報でログインします。
-そして、「L4-L7 Services」ペインを展開します。
+そして、 ``L4-L7 Services`` ペインを展開します。
 
-#. F5 Automation & Orchestration Intro Postman Collectionに戻り、Lab 2.4の「Step 1: Create TENANT Service Deployment」をクリックしてください。 URLとJSONボディを確認します。 そして「MyTenant」配下に、「Tenant Editable」とマークされたパラメータを持つ新しいテナントのサービス展開を作成します。この項目は、サービス展開のCreate（作成）操作の例です。
+#. F5 Automation & Orchestration Intro Postman Collectionに戻り、Lab 2.4の ``Step 1: Create TENANT Service Deployment`` をクリックしてください。 URLとJSONボディを確認します。 そして ``MyTenant`` 配下に、 ``Tenant Editable`` とマークされたパラメータを持つ新しいテナントのサービス展開を作成します。この項目は、サービス展開のCreate（作成）操作の例です。
 
    |image60|
 
-#. 「Send」ボタンをクリックし、サービス展開を作成後に、レスポンスを確認します。 iWorkflow GUIでは、「Services」ペインに新しい項目が表示されていることを確認します。
+#. ``Send`` ボタンをクリックし、サービス展開を作成後に、レスポンスを確認します。 iWorkflow GUIでは、 ``Services`` ペインに新しい項目が表示されていることを確認します。
 
    |image61|
 
@@ -82,9 +82,9 @@ Task 2 – テナントのL4-L7 サービス展開
 
    |image62|
 
-#. Postmanに戻り、Collection内の「Step 2: Get TENANT Service　Deployment」項目をクリックし、「Send」をクリックします。 この項目は、サービス展開のRead（読み取り）操作の例です。 レスポンスは、iWorkflow GUIのデプロイメントプロパティの画面に表示される設定と一致することを確認します。
+#. Postmanに戻り、 ``Collections`` 内の ``Step 2: Get TENANT Service　Deployment`` 項目をクリックし、 ``Send`` をクリックします。 この項目は、サービス展開のRead（読み取り）操作の例です。 レスポンスは、iWorkflow GUIのデプロイメントプロパティの画面に表示される設定と一致することを確認します。
 
-#. Collection内の「Step 3: Modify TENANT Service Deployment」をクリックします。 この要求は、Update（更新）操作の例です。 サービスデプロイメントを表すURLに対してPUTリクエストを送信していることに注目してください。 JSONボディを解析し、「pool\_\_Members」テーブルにIPアドレスが10.1.10.12の新しいプールメンバーが追加されていることを確認します。「Send」ボタンをクリックし、サービスを再デプロイします。
+#.  ``Collections`` 内の ``Step 3: Modify TENANT Service Deployment`` をクリックします。 この要求は、Update（更新）操作の例です。 サービスデプロイメントを表すURLに対してPUTリクエストを送信していることに注目してください。 JSONボディを解析し、 ``pool\_\_Members`` テーブルにIPアドレスが10.1.10.12の新しいプールメンバーが追加されていることを確認します。 ``Send`` ボタンをクリックし、サービスを再デプロイします。
 
    |image63|
 
@@ -92,7 +92,7 @@ Task 2 – テナントのL4-L7 サービス展開
 
    |image64|
 
-#. Postmanに戻り、「Step 4: Delete TENANT Service Deployment」項目をクリックします。 この項目は、サービス展開のURLに対してDELETE要求を送信します。 「Send」をクリックし、iWorkflow及びBIG-IP GUIでデプロイメントが削除されていることを確認します。
+#. Postmanに戻り、 ``Step 4: Delete TENANT Service Deployment`` 項目をクリックします。 この項目は、サービス展開のURLに対してDELETE要求を送信します。 ``Send`` をクリックし、iWorkflow及びBIG-IP GUIでデプロイメントが削除されていることを確認します。
 
 .. |image59| image:: /_static/image059.png
    :scale: 40%

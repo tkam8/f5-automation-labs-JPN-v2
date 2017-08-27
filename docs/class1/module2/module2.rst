@@ -11,7 +11,7 @@ iWorkflowはAutomation＆Orchestrationのツールチェーンに2つの主な�
 iWorkflowベースのツールチェーンに移行する際には、L1-3の自動化(Device Onboarding, Networking, 等)とL4-7の自動化(Deployment of Virtual Servers, Pools, 等)が分離され、
 異なる機能によって提供されることを理解することが重要です。
 
-L1-3ネットワークとデバイスオンボーディングは、サードパーティのテクノロジエコシステムに固有の「Cloud　Connectors」によって提供されます。
+L1-3ネットワークとデバイスオンボーディングは、サードパーティのテクノロジエコシステムに固有の ``Cloud　Connectors`` によって提供されます。
 (例： vCMP, Cisco APIC, VMware NSX, BIG-IP, 等)
 
 L4-7サービスの提供は、次のモデルによって実現できます:
@@ -22,7 +22,7 @@ L4-7サービスの提供は、次のモデルによって実現できます:
 
 このモジュールのラボでは、L1-7の完全自動化を実現するための高度な機能に焦点を当てます。 上記のように、iAppsはこのツールチェーンの主要コンポーネントです。
 従って、f5.httpというiAppを使用してシンプルな導入例を作成します。
-より高度なユースケースの場合は、「Declarative」または「Deployment-centric」(デプロイメント中心)のiAppテンプレートを使用する必要があります。
+より高度なユースケースの場合は、 ``Declarative`` または ``Deployment-centric`` (デプロイメント中心)のiAppテンプレートを使用する必要があります。
 この種のサポートされているテンプレートの例は、App Services Integration iAppと呼ばれ、https://github.com/F5Networks/f5-application-services-integration-iAppで入手できます。
 
 .. toctree::

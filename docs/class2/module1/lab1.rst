@@ -10,7 +10,7 @@ Lab |labmodule|\.\ |labnum|\: Docker Community Edition (CE)のインストール
 
 f5-super-netops-containerを使用するには、まずシステムにDocker Community Editionをインストールする必要があります。
 
-.. NOTE:: F5が提供するラボ環境を使用している場合、Docker CEはすでに「Docker Server」という名前のホストにインストールされています。 そのホストにSSHですべての ``docker`` コマンドを実行してください。
+.. NOTE:: F5が提供するラボ環境を使用している場合、Docker CEはすでに ``Docker Server`` という名前のホストにインストールされています。 そのホストにSSHですべての ``docker`` コマンドを実行してください。
 
 Task 1 – Docker CEをインストール
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

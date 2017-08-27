@@ -1,4 +1,4 @@
-Module 2: 「f5-postman-workflows」フレームワーク & 「f5-newman-wrapper」ツールの紹介
+Module 2: ``f5-postman-workflows`` フレームワーク & ``f5-newman-wrapper`` ツールの紹介
 ==================================================
 
 以前のモジュールでは、さまざまなレスポンス値のチェックや環境変数の設定に非常に面倒な作業がありました。 退屈であることに加えて、人間の判断をようする作業があるため自動化することはできません。
@@ -20,7 +20,7 @@ F5 BIG-IPプラットフォームの自動化を支援するため、Postman RES
 
 ユーザーは、Postman GUIクライアント、Postman Collection RunnerまたはNewman CLIクライアントを使用して、これらのコレクションを実行できます。
 
-このモジュールは、ツールの使い方を説明します。 「f5-postman-workflows」フレームワークを使用してコレクションに興味がある場合は、公式のGitHubリポジトリをご覧ください。 https://github.com/0xHiteshPatel/f5-postman-workflows
+このモジュールは、ツールの使い方を説明します。 ``f5-postman-workflows`` フレームワークを使用してコレクションに興味がある場合は、公式のGitHubリポジトリをご覧ください。 https://github.com/0xHiteshPatel/f5-postman-workflows
 
 .. toctree::
    :maxdepth: 1

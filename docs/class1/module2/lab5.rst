@@ -38,16 +38,16 @@ Task 1 – RESTプロキシを通じてREST操作を実行
 
 このタスクを完了するには、次の手順を実行します:
 
-#. Postman Collection内の「Lab 2.5 – iWorkflow REST Proxy」のフォルダを展開します。
+#. Postman ``Collections`` 内の ``Lab 2.5 – iWorkflow REST Proxy`` のフォルダを展開します。
 
-#. 「Step 1: Create pool on BIGIP-A」をクリックし、リクエストの種類、URL、JSONボディを確認します。
-基本的には、BIGIP-Aの「/mgmt/tm/ltm/pool」コレクションへのPOSTを実行しています。URLの最後の部分には、このURIパス（ ‘…./rest-proxy/’ の後の部分）が含まれます。JSONボディと他のパラメータは変更されずに渡されます。 また、BIG-IPではなく、iWorkflowトークンを使用して認証を行っていることに注目してください。
+#. ``Step 1: Create pool on BIGIP-A`` をクリックし、リクエストの種類、URL、JSONボディを確認します。
+基本的には、 ``BIG-IP-A`` の ``/mgmt/tm/ltm/pool`` コレクションへのPOSTを実行しています。URLの最後の部分には、このURIパス（ ‘…./rest-proxy/’ の後の部分）が含まれます。JSONボディと他のパラメータは変更されずに渡されます。 また、BIG-IPではなく、iWorkflowトークンを使用して認証を行っていることに注目してください。
 
    |image65|
 
-#. 「Send」をクリックし、レスポンスを確認します。
+#. ``Send`` をクリックし、レスポンスを確認します。
 
-#. 「Lab 2.5 – iWorkflow REST Proxy」Collectionの残りの項目については、手順2〜5を実行します。何が起きているのかを理解するために、各レスポンスを確認します。
+#. ``Lab 2.5 – iWorkflow REST Proxy`` Collectionの残りの項目については、手順2〜5を実行します。何が起きているのかを理解するために、各レスポンスを確認します。
 
 .. |image65| image:: /_static/image065.png
    :scale: 40%

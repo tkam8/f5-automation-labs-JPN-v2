@@ -5,12 +5,12 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: 「f5-newman-wrapper」でワークフローを実行
+Lab |labmodule|\.\ |labnum|\: ``f5-newman-wrapper`` でワークフローを実行
 -------------------------------------------------------------------
 
-このラボでは、以前のラボで確認したワークフローを実行するために「f5-super-netops-container」コンテナを使用します。 「f5-super-netops-container」コンテナの利点は、すべてのツール、コレクション、およびフレームワークがプリインストールされ、すぐに使用できることです。
+このラボでは、以前のラボで確認したワークフローを実行するために ``f5-super-netops-container`` コンテナを使用します。  ``f5-super-netops-container`` コンテナの利点は、すべてのツール、コレクション、およびフレームワークがプリインストールされ、すぐに使用できることです。
 
-Task 1 - 「f5-newman-wrapper」ワークフローを実行
+Task 1 - ``f5-newman-wrapper`` ワークフローを実行
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. :ref:`previous lab <lab1_3_1>`　で説明されているようにSSHセッションを開きます。

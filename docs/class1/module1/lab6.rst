@@ -35,7 +35,7 @@ Task 1 – 基本的なLTM Configを設定
 
 このタスクを完了するには、次の手順を実行します:
 
-#. Postman Collection内の ``Lab 1.6 – Build a Basic LTM Config`` フォルダを展開します。
+#. Postman ``Collections`` 内の ``Lab 1.6 – Build a Basic LTM Config`` フォルダを展開します。
 
 #. フォルダ内の各ステップをクリックし、``Send`` をクリックします。 GUIで各コンポーネントがBIG-IPデバイス上に作成されていることを確認します。
 

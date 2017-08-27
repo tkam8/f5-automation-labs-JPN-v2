@@ -18,7 +18,7 @@ Task 1 – トランザクションを作成
 
 このタスクを完了するには、次の手順を実行します:
 
-#. Postman Collection内の ``Lab 1.7 – Rest API Transactions`` フォルダを展開します。
+#. Postman ``Collections`` 内の ``Lab 1.7 – Rest API Transactions`` フォルダを展開します。
 
    |image35|
 
@@ -34,33 +34,33 @@ Task 1 – トランザクションを作成
 
    |image38|
 
-#. Postman Collection内の ``Step 2: Add to Transaction: Create a HTTP Monitor`` 項目をクリックします。この要求は、non-transaction enabled requestと同じ要求タイプ（POST）、URI、およびJSONボディとなっています。違いは ``X-F5-REST-Coordination-Id`` ヘッダに ``transId`` 属性の値を加えてトランザクションに追加する点です。
+#. Postman  ``Collections`` 内の ``Step 2: Add to Transaction: Create a HTTP Monitor`` 項目をクリックします。この要求は、non-transaction enabled requestと同じ要求タイプ（POST）、URI、およびJSONボディとなっています。違いは ``X-F5-REST-Coordination-Id`` ヘッダに ``transId`` 属性の値を加えてトランザクションに追加する点です。
 
    |image39|
 
 #. ``Send`` ボタンをクリックし、応答を確認します。
 
-#. Collection内のステップ3〜6で ``Send`` をクリックし、確認します。
+#.  ``Collections`` 内のステップ3〜6で ``Send`` をクリックし、確認します。
 
 #. ``Step 7: View the Transaction queue`` の項目をクリックし、リクエストタイプとURIを確認してから ``Send`` ボタンをクリックします。この要求によって、トランザクション内にあるコマンド（順序付けられた）の現在のリストを表示することができます。
 
 Task 2 – トランザクションの変更
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Collection内の ``Step 8: View queued command 4 from Transaction`` 項目をクリックし、リクエストタイプとURIを確認します。キューに入れられたコマンド＃4をトランザクションリストから取得します。
+#.  ``Collections`` 内の ``Step 8: View queued command 4 from Transaction`` 項目をクリックし、リクエストタイプとURIを確認します。キューに入れられたコマンド＃4をトランザクションリストから取得します。
 
    |image76|
 
-#. Collection内の ``Step 9: Change Eval Order 4 ->1`` 項目をクリックし、リクエストタイプ、URI、とJSONボディを確認します。トランザクションリソースにPATCHリクエストを送信後に、``evalOrder`` 属性の値を4から1に変更し、トランザクションキューの最初の位置に移動します。
+#.  ``Collections`` 内の ``Step 9: Change Eval Order 4 ->1`` 項目をクリックし、リクエストタイプ、URI、とJSONボディを確認します。トランザクションリソースにPATCHリクエストを送信後に、``evalOrder`` 属性の値を4から1に変更し、トランザクションキューの最初の位置に移動します。
 
    |image77|
 
-#. Collection内の ``Step 10: View the Transaction queue changes`` 項目をクリックします。トランザクション#4が位置1に移動し、他のすべてのトランザクションの ``evalOrder`` がそれに応じて移動したことを確認します。
+#.  ``Collections`` 内の ``Step 10: View the Transaction queue changes`` 項目をクリックします。トランザクション#4が位置1に移動し、他のすべてのトランザクションの ``evalOrder`` がそれに応じて移動したことを確認します。
 
 Task 3 – トランザクションのコミット
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Collection内の ``Step 11: Commit the Transaction`` 項目をクリックして、リクエストタイプ、URI、とJSONボディを確認します。トランザクションリソースにPATCH要求を送信し、トランザクションをsubmitするための ``state`` 属性の値を変更します。
+#.  ``Collections`` 内の ``Step 11: Commit the Transaction`` 項目をクリックし、リクエストタイプ、URI、とJSONボディを確認します。トランザクションリソースにPATCH要求を送信し、トランザクションをsubmitするための ``state`` 属性の値を変更します。
 
    |image40|
 

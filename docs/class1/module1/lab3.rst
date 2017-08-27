@@ -8,7 +8,7 @@
 Lab |labmodule|\.\ |labnum| – デバイス設定の確認／設定
 --------------------------------------------------------
 
-ご利用のBIG-IP-Aデバイスは既にライセンスアクティベーションされていますので、ここでは、デバイスのオンボードプロセスを完了するために、以下のようなBIG-IPの基本設定を行います。
+ご利用の``BIG-IP A``デバイスは既にライセンスアクティベーションされていますので、ここでは、デバイスのオンボードプロセスを完了するために、以下のようなBIG-IPの基本設定を行います。
 
 -  デバイス設定
 
@@ -57,13 +57,13 @@ Task 1 – デバイスのホスト名の設定とGUIセットアップウィザ
 
 このタスクを完了するには、次の手順を実行します。
 
-#. Postman collection内の ``Lab 1.3 – Review/Set Device Settings`` フォルダを展開します。
+#. Postmanの ``Collections`` 内の ``Lab 1.3 – Review/Set Device Settings`` フォルダを展開します。
 
 #. ``Step 1: Get System Global-Settings`` 項目をクリックします。``Send`` ボタンをクリックし、Response Bodyにてデバイスの現在の設定内容を確認します。
 
 #. ``Step 2: Set System Global-Settings`` をクリックします。 この項目は、``global-settings`` リソースに対するPATCHリクエストを使用して、その中に含まれる属性を変更します。 ``guiSetup`` と ``hostname`` 属性を更新します。
 
-   - JSONの内容を確認した後、``hostname`` 属性にて、ホスト名を ``bigip-a.f5.local`` に変更してください。
+   - ``Body`` タブでJSONのボディを確認した後、``hostname`` 属性にて、ホスト名を ``bigip-a.f5.local`` に変更してください。
 
    - ``guiSetup`` 属性にて、GUIセットアップウィザードが無効となっていることを確認してください。
 
@@ -84,7 +84,7 @@ Task 2 – DNS/NTP設定の変更
 
    ``myStringArray: [ "string0", "string1" ... "stringX" ]``
 
-前述のタスクと同様に、``sys`` のOrganizing Collectionの正しいリソースにPATCH要求を送信することで、システムDNSとNTP設定を更新できます。 このタスクの関連リソースは次のとおりです。
+前述のタスクと同様に、``sys`` というOrganizing Collection配下のリソースにPATCH要求を送信することで、システムDNSとNTP設定を更新できます。 このタスクの関連リソースは次のとおりです。
 
 +------------------------+----------------+
 | URL                    | Type           |
@@ -96,15 +96,15 @@ Task 2 – DNS/NTP設定の変更
 
 このタスクを完了するには、次の手順を実行します。
 
-#. Collection内の ``Step 3: Get System DNS Settings`` をクリックします。``Send`` をクリックし、現在の設定を確認します。
+#. ``Collections`` 内の ``Step 3: Get System DNS Settings`` をクリックします。``Send`` をクリックし、現在の設定を確認します。
 
-#. Collection内の ``Step 4: Set System DNS Settings`` をクリックします。JSONボディを確認し、DNSサーバのIPアドレスに ``4.2.2.2`` と ``8.8.8.8`` がリストされていることを確認してください。さらに、``f5.local`` の検索ドメインを追加します。 これらの属性の両方に対してJSON配列を変更します。
+#. ``Collections`` 内の ``Step 4: Set System DNS Settings`` をクリックします。JSONボディを確認し、DNSサーバのIPアドレスに ``4.2.2.2`` と ``8.8.8.8`` がリストされていることを確認してください。さらに、``f5.local`` の検索ドメインを追加します。 これらの属性の両方に対してJSON配列を変更します。
 
 #. ``Send`` ボタンをクリックし、変更が正常に実装されたことを確認します。
 
-#. Collection内の ``Step 5: Get System NTP Settings`` をクリックします。``Send`` をクリックし、現在の設定を確認します。
+#. ``Collections`` の ``Step 5: Get System NTP Settings`` をクリックします。``Send`` をクリックし、現在の設定を確認します。
 
-#. Collection内の ``Step 6: Set System NTP Settings`` をクリックします。JSONボディを確認し、ホスト名 ``0.pool.ntp.org`` と ``1.pool.ntp.org`` を持つNTPサーバが ``servers`` 属性に含まれていることを確認してください。
+#. ``Collections`` 内の ``Step 6: Set System NTP Settings`` をクリックします。JSONボディにて ``0.pool.ntp.org`` と ``1.pool.ntp.org`` のホスト名を持つNTPサーバが ``servers`` 属性に含まれていることを確認し、 ``timezone`` 属性を ``Japan`` に変更してください。
 
 #. ``Send`` ボタンをクリックし、変更が正常に反映されたことを確認します。
 
@@ -116,22 +116,22 @@ Task 3 – デフォルトのユーザーアカウントのパスワードを更
 
 **root** ユーザーのパスワードを変更するには、以下の手順を実行します:
 
-#. Collection内の ``Step 7: Set root User Password`` をクリックします。
+#. ``Collections`` 内の ``Step 7: Set root User Password`` をクリックします。
 
-#. shared REST workerにPOST操作を実行していることに注目してください。JSONボディを修正後にパスワードを ``newdefault`` という値に更新し、``Send`` ボタンをクリックします。
+#. shared REST workerにPOST操作を実行していることに注目してください。JSONボディ内の ``newPassword`` 属性にて ``newdefault`` という値に更新し、``Send`` ボタンをクリックします。
 
    |image26|
 
-#. PuTTYを使用してBIG-IP-AへのSSHセッションを開くと、パスワードが変更されたことを確認できます。
+#. Puttyを起動し、設定したパスワードで ``BIG-IP-A`` にログインし、正常に変更されたことを確認します。
 
 #. **上記の手順を繰り返し、パスワードを** ``default`` **に戻します。**
 
 
 **admin** ユーザーのパスワードを変更するには、以下の手順を実行します:
 
-#. Collection内の ``Step 8: Set admin User Password`` をクリックします。
+#. ``Collections`` 内の ``Step 8: Set admin User Password`` をクリックします。
 
-#. admin userリソースにPATCH操作を実行していることに注目してください。JSONボディを修正後にパスワードを ``newadmin`` という値に更新し、``Send`` ボタンをクリックします。
+#. admin userリソースにPATCH操作を実行していることに注目してください。JSONボディにてパスワードを ``newadmin`` という値に更新し、``Send`` ボタンをクリックします。
 
    |image27|
 

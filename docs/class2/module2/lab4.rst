@@ -8,15 +8,15 @@
 Lab |labmodule|\.\ |labnum|\: ``f5-newman-wrapper`` でワークフローを実行
 -------------------------------------------------------------------
 
-このラボでは、以前のラボで確認したワークフローを実行するために ``f5-super-netops-container`` コンテナを使用します。  ``f5-super-netops-container`` コンテナの利点は、すべてのツール、コレクション、およびフレームワークがプリインストールされ、すぐに使用できることです。
+このラボでは、これまでのラボで確認したワークフローを実行するために ``f5-super-netops-container`` コンテナを使用します。 ``f5-super-netops-container`` コンテナの利点は、すべてのツール、コレクション、およびフレームワークがプリインストールされており、すぐに使用できることです。
 
 Task 1 - ``f5-newman-wrapper`` ワークフローを実行
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. :ref:`previous lab <lab1_3_1>`　で説明されているようにSSHセッションを開きます。
-#. ``cd f5-postman-workflows/local``　を実行します。
-#. ``cp ../workflows/Wrapper_Demo_1.json .``　を実行します。
-#. ``vim``　で ``Wrapper_Demo_1.json``　ファイルを編集し、 ``bigip_mgmt``　変数の値に ``10.1.1.4``　を入力してください。
+#. :ref:`previous lab <lab1_3_1>` で説明されているようにSSHセッションを開きます。
+#. ``cd f5-postman-workflows/local`` を実行します。
+#. ``cp ../workflows/Wrapper_Demo_1.json .`` を実行します。
+#. ``vim`` で ``Wrapper_Demo_1.json`` ファイルを編集し、``bigip_mgmt`` 変数の値に ``10.1.1.4`` を入力してください。
 
    .. code:: json
 
@@ -26,10 +26,10 @@ Task 1 - ``f5-newman-wrapper`` ワークフローを実行
                 "bigip_password":"admin"
         },
 
-#. ``f5-newman-wrapper Wrapper_Demo_1.json``　を実行します。
-#. 出力を調べて、ワークフローの実行方法を確認します。 ここでのテストは、以前にPostmanを使用したときのテストと同じであることに注目してください。
+#. ``f5-newman-wrapper Wrapper_Demo_1.json`` を実行します。
+#. 出力をみて、どのようにワークフローが実行されたかを確認します。ここでのテストは、これまでのPostmanを使用したときのテストと同じであることに注目してください。
 
-   出力例:
+   出力例:
 
    .. code::
 
@@ -110,7 +110,7 @@ Task 1 - ``f5-newman-wrapper`` ワークフローを実行
         ├───────────────────────────────────────────────┤
         │ average response time: 16ms                   │
         └───────────────────────────────────────────────┘
-#. ``cat Wrapper_Demo_1-env.json``　を実行し、実行終了時に保存された環境変数を確認します。
+#. ``cat Wrapper_Demo_1-env.json`` を実行し、実行終了時に保存された環境変数を確認します。
 
    出力例:
 
@@ -159,4 +159,4 @@ Task 1 - ``f5-newman-wrapper`` ワークフローを実行
         ]
       }
 
-``bigip_version``　と ``bigip_build``　変数は保存されています。このファイルはJSONでフォーマットされており、他のツールで直接自動化して簡単に使用することができます。
+``bigip_version`` と ``bigip_build`` 変数が保存されてことを確認してください。このファイルはJSONフォーマットなので、他のツールで簡単に使用することができます。

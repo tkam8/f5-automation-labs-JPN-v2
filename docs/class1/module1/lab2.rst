@@ -34,6 +34,7 @@ Task 1 - Postmanの ``Collections`` と環境変数をインポートする
 
    |image88|
 
+
 #. Postmanの ``Collections`` のサイドバーに ``F5 Automation & Orchestration Intro`` という名前のコレクションが表示されます。
 
    |image10|
@@ -116,11 +117,11 @@ BIG-IPとiWorkflowは、TMOSで利用可能なその他の認証の仕組みに�
 
    - |image16|
 
-#. 200 OKのステータスコードを受け取ったら、レスポンスボディをチェックし、特定のトークンに割り当てられたパラメータを示すさまざまな属性を確認します。``token`` 属性を見つけてクリップボードにコピーし（ ``Ctrl+c`` ）、次のステップで使用します。
+#. 200 OKのステータスコードを受け取ったら、レスポンスボディをチェックし、特定のトークンに割り当てられたパラメータを示すさまざまな属性を確認します。 ``token`` 属性を見つけてクリップボードにコピーし（ ``Ctrl+c`` ）、次のステップで使用します。
 
    |image17|
 
-#. ``Lab 1.2 Postman Collection`` の ``Step 3: Verify Authentication　Works`` の項目をクリックします。``Headers`` タブをクリックし、``X-F5-Auth-Token`` ヘッダーの ``Value`` としてトークン値を貼り付けます。トークンベースの認証を使用する場合、このヘッダーはすべての要求で送信する必要があります。
+#. ``Lab 1.2 Postman Collection`` の ``Step 3: Verify Authentication　Works`` の項目をクリックします。 ``Headers`` タブをクリックし、 ``X-F5-Auth-Token`` ヘッダーの ``Value`` としてトークン値を貼り付けます。トークンベースの認証を使用する場合、このヘッダーはすべての要求で送信する必要があります。
 
    |image18|
 

@@ -1,13 +1,13 @@
 Class 2: 継続的デリバリ・パイプラインの構築
 ================================================
 
-このコースでは以下のトピックが含まれています:
+このコースでは以下のトピックが含まれています。
 
-- F5 Automationツールの紹介:
+- F5 Automationツールのご紹介
 
-  - 「f5-super-netops-container」オートメーション用コンテナ
-  - PostmanのCollections及びF5のPostman拡張機能「f5-postman-workflows」
-  - f5-newman-wrapperを使用したAutomationワークフロー
+  - オートメーション用コンテナ（ ``f5-super-netops-container``） 
+  - Postman collections、及びF5のPostman拡張機能（ ``f5-postman-workflows``）
+  - ``f5-newman-wrapper`` を使用したAutomationワークフロー
   
 - Jenkinsを用いたCI/CDパイプラインの構築 
 

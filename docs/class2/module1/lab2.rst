@@ -13,13 +13,13 @@ Lab |labmodule|\.\ |labnum|\: ``f5-super-netops-container`` イメージのダ�
 Task 1 – コンテナイメージをダウンロード
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-このタスクを完了するには、次の手順を実行します:
+このタスクを完了するには、次の手順を実行します。
 
 #. コマンドプロンプトを開きます。
 
 .. NOTE:: F5提供のラボ環境を使用している場合は、SSHで ``Docker Server`` ホストに接続し、次のコマンドを実行してください。
 
-#. ``docker pull f5devcentral/f5-super-netops-container:develop-jenkins``　を実行します。
+#. ``docker pull f5devcentral/f5-super-netops-container:develop-jenkins`` を実行します。
 
    出力例:
 
@@ -56,7 +56,7 @@ Task 1 – コンテナイメージをダウンロード
       Digest: sha256:27563f98bf58c9d26eb5989acaf540a9ad7fb1806e4a4c373ad28769ebe63ef4
       Status: Downloaded newer image for f5devcentral/f5-super-netops-container:develop-jenkins
 
-#.  ``docker images``　を実行します。
+#.  ``docker images`` を実行します。
 
    出力例:
 
@@ -73,8 +73,8 @@ Task 2 – Start the container image
 
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins``
 
-``-p``　オプションで、外部からアクセスされるポート番号:コンテナ側のポート番号と指定し、ポートフォワードをさせます。
-例えば、 ``-p 8080：80`` オプションは、ホスト側のポート ``8080`` をコンテナのポート ``80`` にリダイレクトします。
+``-p`` オプションで、``外部からアクセスされるポート番号:コンテナ側のポート番号`` を指定し、ポートフォワードをさせます。
+例えば、``-p 8080：80`` オプションは、ホスト側のポート ``8080`` をコンテナのポート ``80`` にリダイレクトします。
 
 ``-it`` オプションをつけることでコンテナ内で操作できます。
 
@@ -84,13 +84,13 @@ Task 2 – Start the container image
 
 このタスクを完了するには、次の手順を実行します:
 
-#. ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins``　を実行します。
+#. ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins`` を実行します。
 
-   .. NOTE:: このイメージには、ツールとドキュメントの最新バージョンをダウンロードするためにインターネットに接続する必要があります。 イメージを起動する前に、ホストからのインターネットアクセスがあることを確認してください。プロキシを使用する必要がある場合は、以下のドキュメントを参照してください。
+   .. NOTE:: ツールとドキュメントの最新バージョンをダウンロードするために、インターネットに接続する必要があります。イメージを起動する前に、ホストからのインターネットアクセスがあることを確認してください。プロキシを使用する必要がある場合は、以下のドキュメントを参照してください。
    
       https://docs.docker.com
 
-   このコマンドで、イメージが起動され、インターネットからリソースがロードされます。この処理には、接続速度に応じて時間がかかることがあります。起動プロセスが完了すると、 `` root`` ユーザプロンプトが表示されます。標準のLinuxコマンドを使用してイメージとやり取りすることができます。次のラボでは、SSHとHTTP経由でイメージに接続します。
+   このコマンドで、イメージが起動され、インターネットからリソースがロードされます。この処理はインターネット接続環境によっては時間がかかることがあります。起動プロセスが完了すると、``root`` ユーザプロンプトが表示されます。標準のLinuxコマンドを使用して設定をすることができます。次のラボでは、SSHとHTTP経由でイメージに接続します。
 
    起動時の出力例：
 
@@ -192,9 +192,9 @@ Task 2 – Start the container image
 Task 3 - コンテナの取り外し/再取り付け（Detach/Attach）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-フォアグラウンドプロセス（この場合はシェル）が終了すると、コンテナが終了することを理解することが重要です。 たとえば、実行中のコンテナに `` exit`` コマンドを入力した場合、シャットダウンプロセスが開始されます。 これを避けるには、起動が完了したらコンテナから取り外す必要があります。 その後、SSHでコンテナに接続し、コンテナ内の操作を実行することができます。 これについては次のラボで説明します。
+フォアグラウンドプロセス（この場合はシェル）が終了すると、コンテナが終了します。たとえば、実行中のコンテナに ``exit`` コマンドを入力した場合、シャットダウンプロセスが開始されます。これを避けるには、起動が完了したらコンテナから取り外す必要があります。 その後、SSHでコンテナに接続し、コンテナ内の操作を実行することができます。詳細手順を以下で説明します。
 
-コンテナを取り外し
+コンテナの取り外し
 ^^^^^^^^^^^^^^^^^^^^
 
 #. 起動中のTTY（仮想端末）で ``Ctrl+p+q`` を押します。
@@ -208,7 +208,7 @@ Task 3 - コンテナの取り外し/再取り付け（Detach/Attach）
       [root@f5-super-netops] [/] # <enter Ctrl+p+q>
       hostname:~ user$
 
-#. ``docker ps``　を入力し、コンテナがまだ起動していることを確認します。
+#. ``docker ps`` を入力し、コンテナがまだ起動していることを確認します。
 
    出力例:
 
@@ -219,10 +219,10 @@ Task 3 - コンテナの取り外し/再取り付け（Detach/Attach）
       CONTAINER ID        IMAGE                                                    COMMAND                  CREATED             STATUS              PORTS                                                                                      NAMES
       4cf75944bfbc        f5devcentral/f5-super-netops-container:develop-jenkins   "/init /snopsboot/..."   2 minutes ago       Up 2 minutes        8000/tcp, 50000/tcp, 0.0.0.0:2222->22/tcp, 0.0.0.0:8080->80/tcp, 0.0.0.0:10000->8080/tcp   loving_montalcini
 
-コンテナを再取り付け
+コンテナの再取り付け
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-#. ``docker ps``　を実行します。
+#. ``docker ps`` を実行します。
 
    出力例:
 
@@ -235,7 +235,7 @@ Task 3 - コンテナの取り外し/再取り付け（Detach/Attach）
       |------------|
         ^- YOUR CONTAINER ID
 
-#. ``CONTAINER ID``　カラムに、「f5devcentral/f5-super-netops-container:develop-jenkins」イメージに該当する値をコピーします。
+#. ``CONTAINER ID`` カラムに、``f5devcentral/f5-super-netops-container:develop-jenkins`` イメージに該当する値をコピーします。
 #. ``docker attach <container_id>`` を実行します。
-#. コマンドプロンプトを表示するには ``<Enter>``　を押す必要があります。
-#. ``<Ctrl+p+q>``　入力し、もう一度コンテナを取り外します。
+#. コマンドプロンプトを表示するには ``<Enter>`` を押す必要があります。
+#. ``<Ctrl+p+q>`` 入力し、もう一度コンテナを取り外します。

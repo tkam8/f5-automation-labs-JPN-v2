@@ -10,17 +10,17 @@ Lab |labmodule|\.\ |labnum|\: Docker Community Edition (CE)のインストール
 
 f5-super-netops-containerを使用するには、まずシステムにDocker Community Editionをインストールする必要があります。
 
-.. NOTE:: F5が提供するラボ環境を使用している場合、Docker CEはすでに ``Docker Server`` という名前のホストにインストールされています。 そのホストにSSHですべての ``docker`` コマンドを実行してください。
+.. NOTE:: F5が提供するラボ環境を使用している場合、Docker CEはすでに ``Docker Server`` という名前のホストにインストールされています。そのホストにSSHで接続し、すべての ``docker`` コマンドを実行してください。
 
 Task 1 – Docker CEをインストール
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Docker CEをインストールするには、以下のリンクをご参照ください。
+Docker CEをインストールするには、こちらのリンクをご参照ください。
 https://docs.docker.com/engine/installation/
 
-インストールが完了し、 ``hello-world``　テストを正常に実行したら、次のラボに進みます。
+インストールが完了し、``hello-world`` テストを正常に実行したら、次のラボに進みます。
 
-``hello-world``　コンテナの設定をテストするには、以下のコマンドを実行してください。
+``hello-world`` コンテナの設定をテストするには、以下のコマンドを実行してください。
 
 ``docker run hello-world``
 
@@ -56,12 +56,9 @@ https://docs.docker.com/engine/installation/
     https://docs.docker.com/engine/userguide/
 
 
-.. NOTE:: ``--rm`` オプションを使うと、コンテナは停止するとすぐに削除されます。
+.. NOTE:: ``--rm`` オプションを使うと、コンテナが停止するとすぐに削除されます。
 
-このメッセージが表示された場合： *Cannot connect to the Docker daemon. Is the docker
-   daemon running on this host?* 、ユーザー特権を確認してください。 また、ドッカーコマンドを実行するときにsudoを使用してみてください。
+このメッセージが表示された場合：*Cannot connect to the Docker daemon. Is the docker daemon running on this host?* 、ユーザー権限を確認してください。 また、Dockerコマンドを実行するときにsudoを使用してみてください。
 
-hello-worldコンテナを削除するには、 ``sudo docker rmi hello-world`` コマンドを実行します。
-コンテナが実行中の場合、イメージを削除することはできません。 その場合、次のコマンドを発行できます（これにより、すべてのコンテナインスタンスが停止します）。
-
-   ``sudo docker stop $(docker ps -aq)``
+hello-worldコンテナを削除するには、``sudo docker rmi hello-world`` コマンドを実行します。
+コンテナが実行中の場合、イメージを削除することはできません。その場合、次のコマンドを実行します。（これにより、すべてのコンテナインスタンスが停止します）。``sudo docker stop $(docker ps -aq)``

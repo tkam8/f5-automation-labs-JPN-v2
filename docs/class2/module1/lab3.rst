@@ -8,14 +8,14 @@
 Lab |labmodule|\.\ |labnum|\: 「f5-super-netops-container」コンテナへのアクセス
 ------------------------------------------------------------------
 
-以前のラボでは、コンテナイメージを起動し、ルートコマンドプロンプトが表示されました。コンテナとその関連ツールを使用するには、SSHまたはHTTPで接続します。
+これまでのラボでは、コンテナイメージを起動し、ルートコマンドプロンプトが表示されました。コンテナとその関連ツールを使用するには、コンテナイメージに更にSSHまたはHTTPで接続します。
 
 .. _lab1_3_1:
 
 Task 1 – SSHでの接続
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-SSH経由でイメージに接続するには、 ``docker run``　コマンドで指定された外部用ポート番号を使用する必要があります。前のタスクでは、コンテナを起動するためのコマンドは次のとおりでした。
+SSH経由でイメージに接続するには、``docker run`` コマンドで指定された外部用ポート番号を使用する必要があります。前のタスクでは、コンテナを起動するためのコマンドは次のとおりでした。
 
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop
 f5devcentral/f5-super-netops-container:develop-jenkins``
@@ -24,15 +24,15 @@ f5devcentral/f5-super-netops-container:develop-jenkins``
 
 ``localhost:2222 -> f5-super-netops-container:22``
 
-.. NOTE:: F5提供のラボ環境を使用している場合は、SSHクライアントの「f5-super-netops-container SSH」項目に接続してください。
+.. NOTE:: F5提供のラボ環境を使用している場合は、SSHクライアントの ``f5-super-netops-container SSH`` に接続してください。
 
-ログインする際に、ユーザ名　``snops``　とパスワード　``default``　を入力してください。
+ログインする際に、ユーザ名 ``snops`` とパスワード ``default`` を入力してください。
 
 コマンド例:
 
 ``ssh -p 2222 snops@localhost``
 
-.. NOTE:: ホストのSSHキーは、コンテナが起動するたびに再生成されます。その結果、接続しようとしたときにホストキーが変更されたことを示すエラーが表示されることがあります。 このエラーは無視しても安全です。 ``〜/ .ssh / known_hosts``　からキーを削除することで解決できます。 ``〜/ .ssh / config``　に以下を追加することでローカルSSH設定を構成することもできます。
+.. NOTE:: ホストのSSHキーは、コンテナが起動するたびに再生成されます。その結果、接続しようとしたときにホストキーが変更されたことを示すエラーが表示されることがあります。 このエラーは、``〜/ .ssh / known_hosts`` からキーを削除することで解決できます。また、``~/ .ssh / config`` に以下を追加することでローカルSSH設定を構成することもできます。
 
    .. code::
 
@@ -100,7 +100,7 @@ f5devcentral/f5-super-netops-container:develop-jenkins``
 Task 2 – HTTPでの接続
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-HTTP経由でイメージに接続するには、 ``docker run``　コマンドで指定された外部用ポート番号を使用する必要があります。前のタスクでは、コンテナを起動するためのコマンドは次のとおりでした。
+HTTP経由でイメージに接続するには、``docker run`` コマンドで指定された外部用ポート番号を使用する必要があります。前のタスクでは、コンテナを起動するためのコマンドは次のとおりでした。
 
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop
 f5devcentral/f5-super-netops-container:develop-jenkins``
@@ -109,20 +109,20 @@ f5devcentral/f5-super-netops-container:develop-jenkins``
 
 ``localhost:8080 -> f5-super-netops-container:80``
 
-.. NOTE:: F5提供のラボ環境を使用している場合は、Webブラウザで登録されている「Super Netops Container」お気に入りのサイトをクリックしてください。
+.. NOTE:: F5提供のラボ環境を使用している場合は、Webブラウザで登録されている ``Super Netops Container`` お気に入りのサイトをクリックしてください。
 
 HTTPで接続するには、Webブラウザを開き、次のURLを入力します。
 
 ``http://10.1.1.8:8080/start``
 
-以下のような画面が表示されます:
+以下のような画面が表示されます。
 
 |image78|
 
 Task 3 – Jenkinsでの接続
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Jenkins経由でイメージに接続するには、 ``docker run``　コマンドで指定された外部用ポート番号を使用する必要があります。前のタスクでは、コンテナを起動するためのコマンドは次のとおりでした。
+Jenkins経由でイメージに接続するには、``docker run`` コマンドで指定された外部用ポート番号を使用する必要があります。前のタスクでは、コンテナを起動するためのコマンドは次のとおりでした。
 
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop
 f5devcentral/f5-super-netops-container:develop-jenkins``
@@ -131,13 +131,13 @@ f5devcentral/f5-super-netops-container:develop-jenkins``
 
 ``10.1.1.8:10000 -> f5-super-netops-container:8080``
 
-.. NOTE:: 初回アクセス後に、Webブラウザ上でJenkinsのお気に入りを登録することを推奨します。
+.. NOTE:: 初回アクセス後に、Webブラウザ上でJenkinsをお気に入り登録することを推奨します。
 
 HTTPで接続するには、Webブラウザを開き、次のURLを入力します。
 
 ``http://10.1.1.8:10000``
 
-以下のような画面が表示されます:
+以下のような画面が表示されます。
 
 |image89|
 

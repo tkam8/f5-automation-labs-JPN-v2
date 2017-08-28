@@ -5,22 +5,21 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – iWorkflow認証
+Lab |labmodule|\.\ |labnum| – iWorkflowの認証
 ------------------------------------------------------
 
-iWorkflowは、BIG-IP（HTTP BASIC、トークンベースの認証）と同じ認証メカニズムをサポートしています。 このラボでは、iWorkflowのトークンベースの認証を軽く紹介します。
+iWorkflowは、BIG-IP（HTTP BASIC、トークンベースの認証）と同じ認証メカニズムをサポートしています。 このラボでは、iWorkflowのトークンベースの認証を簡単にご紹介します。
 
 
 Task 1 – トークンベースの認証
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-このタスクでは、ローカル認証データベースを使用してトークンベースの認証(以下、TBA)を実施しますが、外部プロバイダへの認証は完全にサポートされています。
+このタスクでは、ローカル認証データベースを使用してトークンベースの認証(以下、TBA)を実施しますが、外部認証プロバイダを利用した認証も利用することができます。
+外部認証プロバイダの詳細については、https://devcentral.f5.com の ``iControl REST API User Guide`` の “\ **About external authentication providers with iControl REST**\ ” をご参照ください。
 
-外部認証プロバイダの詳細については、https：//devcentral.f5.com の ``iControl REST APIユーザーガイド`` の “\ **About external authentication providers with　iControl REST**\ ” をご参照しください。
+このタスクを完了するには、次の手順を実行します。
 
-このタスクを完了するには、次の手順を実行します:
-
-#. Lab 2.1のPostman  ``Collections`` の ``Step 1: Get Authentication Token`` 項目をクリックします。
+#. Lab 2.1のPostman Collectionの ``Step 1: Get Authentication Token`` をクリックします。
 
 #. ``/mgmt/shared/authn/login``　エンドポイントにPOST要求を送信していることに注目してください。
 
@@ -30,9 +29,9 @@ Task 1 – トークンベースの認証
 
    |image42|
 
-#. JSONボディを変更し、必要な資格情報（admin/admin）を追加します。次に、 ``Send`` ボタンをクリックします。
+#. JSONボディに必要な資格情報 ``（admin/admin）`` を追加します。次に、 ``Send`` ボタンをクリックします。
 
-#. レスポンスステータスコードを確認します。認証が成功し、トークンが生成された場合、200 OKステータスコードが返されます。 ステータスコードが401の場合、資格情報を確認してください。
+#. レスポンスステータスコードを確認します。認証が成功し、トークンが生成された場合、``200 OK`` ステータスコードが返されます。 ステータスコードが ``401`` の場合、資格情報が正しく設定されているか確認してください。
 
    **成功の場合:**
 
@@ -42,32 +41,31 @@ Task 1 – トークンベースの認証
 
    - |image44|
 
-#. 200 OKのステータスコードを受け取ったら、JSONボディを確認します。 様々な属性は、特定のトークンに割り当てられたパラメータを示します。 ``token`` 属性を見つけてクリップボードにコピーし（Ctrl + c）、次の手順で使用します。
+#. ``200 OK`` のステータスコードを受け取ったら、レスポンスボディを確認します。様々な属性は、特定のトークンに割り当てられたパラメータを示します。次の手順で利用するために、``token`` 属性をクリップボードにコピーします（Ctrl + c）。
 
    |image45|
 
-#. Lab 2.1のPostman ``Collections`` の ``Step 2: Verify Authentication Works`` の項目をクリックします。 ``Headers`` タブをクリックし、上にコピーしたトークン値を ``X-F5-Auth-Token`` ヘッダの ``Value`` として貼り付けます。TBAを使用する場合、このヘッダーはすべての要求で送信する必要があります。
+#. Lab 2.1のPostman  ``Collections`` の ``Step 2: Verify Authentication Works`` をクリックします。``Headers`` タブをクリックし、前の手順でコピーしたトークン値を ``X-F5-Auth-Token`` ヘッダのVALUEとして貼り付けます。TBAを使用する場合、このヘッダーはすべての要求で送信する必要があります。
 
    |image46|
 
-#. ``Send`` ボタンをクリックします。リクエストが成功すると、　``200 OK`` ステータスと ``ltm`` のOrganizing Collectionのリストが表示されます。
+#. ``Send`` ボタンをクリックします。リクエストが成功すると、``200 OK`` ステータスと ``ltm`` Organizing Collectionのリストが表示されます。
 
-#. ここでは、残りのラボでこの認証トークンを使用するようにPostman環境を更新します。Postman画面の右上にある ``Environment`` メニューをクリックし、 ``Manage Environments`` をクリックします。
+#. 次に、残りのラボでこの認証トークンを使用するようにPostman環境を更新します。Postman画面の右上にある ``Environment`` メニューをクリックし、``Manage Environments`` をクリックします。
 
    |image47|
 
-#. ``INTRO – Automation & Orchestration Lab`` の項目をクリックします。
+#. ``INTRO – Automation & Orchestration Lab`` をクリックします。
 
    |image48|
 
-#. 認証トークンに ``iwf\_auth\_token`` をを貼り付けて（Ctrl-v）、値を更新します。
+#. 認証トークンに ``iwf\_auth\_token`` を貼り付けて（Ctrl-v）、値を更新します。
 
    |image49|
 
-#. ``Update`` ボタンをクリックし、 ``Manage Environments`` ウィンドウを閉じます。 後続のリクエストにトークンが自動的に組み込まれます。
+#. ``Update`` ボタンをクリックし、``Manage Environments`` ウィンドウを閉じます。 これで、後続のリクエストにトークンが自動的に組み込まれるようになります。
 
-#. Lab 1.2のPostman ``Collections`` の　``Step 3: Set Authentication Token Timeout``　の項目をクリックします。このリクエストにより、PATCH要求が送信され、トークンリソースのタイムアウト属性が更新され（URIをチェックする）、ラボを簡単に完了することができます。
-リクエストのタイプとJSONボディを確認し、 ``Send`` ボタンをクリックします。 応答でタイムアウトが ``36000`` に変更されていることを確認します。
+#. Lab 1.2のPostman collection ``Step 3: Set Authentication Token Timeout`` をクリックします。このリクエストにより、PATCH要求が送信され、トークンリソース（URIを確認）のタイムアウト属性が更新されます。リクエストのタイプとJSONボディを確認し、``Send`` ボタンをクリックします。応答でタイムアウトが ``36000`` に変更されていることを確認します。
 
    |image50|
 

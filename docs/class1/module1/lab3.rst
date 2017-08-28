@@ -84,7 +84,7 @@ Task 2 – DNS/NTP設定の変更
 
    ``myStringArray: [ "string0", "string1" ... "stringX" ]``
 
-前述のタスクと同様に、``sys`` というOrganizing Collection配下のリソースにPATCH要求を送信することで、システムDNSとNTP設定を更新できます。 このタスクの関連リソースは次のとおりです。
+前述のタスクと同様に、 ``sys`` というOrganizing Collection配下のリソースにPATCH要求を送信することで、システムDNSとNTP設定を更新できます。 このタスクの関連リソースは次のとおりです。
 
 +------------------------+----------------+
 | URL                    | Type           |
@@ -102,7 +102,7 @@ Task 2 – DNS/NTP設定の変更
 
 #. ``Send`` ボタンをクリックし、変更が正常に実装されたことを確認します。
 
-#. ``Collections`` の ``Step 5: Get System NTP Settings`` をクリックします。``Send`` をクリックし、現在の設定を確認します。
+#. ``Collections`` 内の ``Step 5: Get System NTP Settings`` をクリックします。 ``Send`` をクリックし、現在の設定を確認します。
 
 #. ``Collections`` 内の ``Step 6: Set System NTP Settings`` をクリックします。JSONボディにて ``0.pool.ntp.org`` と ``1.pool.ntp.org`` のホスト名を持つNTPサーバが ``servers`` 属性に含まれていることを確認し、 ``timezone`` 属性を ``Japan`` に変更してください。
 

@@ -65,7 +65,7 @@ Task 1 – トークンベースの認証
 
 #. ``Update`` ボタンをクリックし、``Manage Environments`` ウィンドウを閉じます。 これで、後続のリクエストにトークンが自動的に組み込まれるようになります。
 
-#. Lab 1.2のPostman collection ``Step 3: Set Authentication Token Timeout`` をクリックします。このリクエストにより、PATCH要求が送信され、トークンリソース（URIを確認）のタイムアウト属性が更新されます。リクエストのタイプとJSONボディを確認し、``Send`` ボタンをクリックします。応答でタイムアウトが ``36000`` に変更されていることを確認します。
+#. Lab 2.1のPostman collection ``Step 3: Set Authentication Token Timeout`` をクリックします。このリクエストにより、PATCH要求が送信され、トークンリソース（URIを確認）のタイムアウト属性が更新されます。リクエストのタイプとJSONボディを確認し、``Send`` ボタンをクリックします。応答でタイムアウトが ``36000`` に変更されていることを確認します。
 
    |image50|
 

@@ -9,7 +9,7 @@ iWorkflowは、Automation＆Orchestrationにおいて2つの主な目的を持�
 
 iWorkflowベースのツールチェーンに移行すると、L1-3の自動化(Device Onboarding、Networking等)とL4-7の自動化(Virtual Serverの設定、Poolの設定等)が分離され、それぞれ異なる機能によって提供されます。
 
-L1-3ネットワークとデバイスオンボーディングは、サードパーティのテクノロジエコシステムに固有の ``Cloud Connector`` によって提供されます。
+L1-3ネットワークとデバイスオンボーディングは、サードパーティのテクノロジエコシステムに固有のクラウド向けのコネクタによって提供されます。
 (例：vCMP、Cisco APIC、VMware NSX、BIG-IP等)
 
 L4-7サービスは、次のいずれかのモデルによって提供されます。

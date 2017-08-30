@@ -25,8 +25,7 @@ Task 1 – テナントとテナントのユーザーを作成
 
 #.  ``Collections`` 内の ``Step 1: Create iWorkflow Tenant`` をクリックし ``Send`` をクリックします。この要求により、 ``MyTenant`` というテナントが作成されます。
 
-#.  ``Collections`` 内の ``Step 2: Create Tenant User`` をクリックし ``Send`` をクリックします。
-   この要求により、テナントユーザが作成されます。
+#.  ``Collections`` 内の ``Step 2: Create Tenant User`` をクリックし ``Send`` をクリックします。この要求により、テナントユーザが作成されます。
 
 #.  ``Collections`` 内の ``Step 3: Assign User to Tenant Admin Role`` をクリックし、``Send`` をクリックします。このリクエストは ``MyTenant`` テナントのテナントユーザにAdminロールを割り当てます。
 

@@ -19,7 +19,7 @@ L4-7サービスは、次のいずれかのモデルによって提供されま�
 
 このラボでは、L1-7の完全自動化を実現するための高度な機能に焦点を当てます。L4-7サービスには、ツールチェーンの主要コンポーネントのiAppのひとつである ``f5.http`` を使用して、シンプルな構成を構築します。
 より高度なユースケースの場合は、``Declarative`` または ``Deployment-centric`` （デプロイメント中心)のiAppテンプレートを使用する必要があります。
-F5サポートのテンプレート（Application Services Integration iApp）は、https://github.com/F5Networks/f5-application-services-integration-iAppで入手できます。
+F5サポートのテンプレート（Application Services Integration iApp）は、https://github.com/F5Networks/f5-application-services-integration-iApp で入手できます。
 
 .. toctree::
    :maxdepth: 1

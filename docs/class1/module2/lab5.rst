@@ -45,7 +45,7 @@ Task 1 – RESTプロキシ経由でREST操作を実行
 
 #. ``Send`` をクリックし、レスポンスを確認します。
 
-#. ``Lab 2.5 – iWorkflow REST Proxy`` Collectionの残りの項目については、No.2〜5と同じ手順を行います。実行された内容を理解するために、各レスポンスを確認します。
+#. ``Lab 2.5 – iWorkflow REST Proxy``  の ``Collection``　の残りの項目については、No.2〜5と同じ手順を行います。実行された内容を理解するために、各レスポンスを確認します。
 
 .. |image65| image:: /_static/image065.png
    :scale: 40%

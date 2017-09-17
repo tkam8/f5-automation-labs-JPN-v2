@@ -17,7 +17,7 @@ https://github.com/f5devcentral/f5-automation-labs/
 インストラクターの指示に従い、ジャンプホストにアクセスしてください。
 
 .. NOTE::
-	このラボでは、すべての作業はWindows Jumphostから行います。
+	このラボでは、すべての作業はWindowsの踏み台ホストから行います。
 	また、ローカルのPCに特別なアプリケーションをインストールする必要はありません。
 
 ネットワーク構成
@@ -45,7 +45,7 @@ https://github.com/f5devcentral/f5-automation-labs/
     * - **Component**
       - **VLAN/IP Address(es)**
       - **ID/PASSWORD**
-    * - Windows Jumphost
+    * - Windows 踏み台ホスト
       - - **Management:** 10.1.1.250
         - **Internal:** 10.1.10.250
         - **External:** 10.1.20.250

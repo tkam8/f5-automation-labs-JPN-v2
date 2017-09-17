@@ -33,7 +33,7 @@ https://github.com/f5devcentral/f5-automation-labs/
 
 -  1 x Linux Docker Server (CentOS 7)
 
--  1 x Windows Jumphost
+-  1 x Windows 踏み台ホスト
 
 各コンポーネントのVLAN、IPアドレス、およびID/PASSWORDは、以下をお使い下さい。
 

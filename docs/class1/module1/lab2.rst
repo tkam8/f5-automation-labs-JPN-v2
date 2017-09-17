@@ -19,7 +19,7 @@ Task 1 - Postmanの ``Collections`` と環境変数をインポートする
 
 このタスクを完了するには、次の手順を実行します。
 
-#. Windows Jumphostのタスクバーの |image8| アイコンをクリックして、Postmanツールを起動します。
+#. Windowsの踏み台ホスト上で、タスクバーの |image8| アイコンをクリックして、Postmanツールを起動します。
 
 
 #. Postman画面の左上にある ``Import`` ボタンをクリックします。

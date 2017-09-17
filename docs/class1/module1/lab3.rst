@@ -144,12 +144,12 @@ Task 3 – デフォルトのユーザーアカウントのパスワードを更
 #. **上記の手順を繰り返し、パスワードを** ``admin`` **に戻します。**
 
 .. |image25| image:: /_static/image025.png
-   :scale: 70%
+   :scale: 80%
 .. |image26| image:: /_static/image026.png
    :scale: 40%
 .. |image27| image:: /_static/image027.png
    :scale: 40%
 .. |image89| image:: /_static/image089.png
-   :scale: 40%
+   :scale: 80%
 .. |image90| image:: /_static/image090.png
-   :scale: 40%
+   :scale: 80%

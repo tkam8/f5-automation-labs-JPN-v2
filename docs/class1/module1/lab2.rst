@@ -15,7 +15,7 @@ BIG-IPとiWorkflowは、HTTP BASICとToken basedの２種類の認証方式を�
 Task 1 - Postmanの ``Collections`` と環境変数をインポートする
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-このラボで使用されるPostmanのコレクションと環境変数をインポートします。
+このラボで使用されるPostmanのコレクションと環境変数をインポートします。PostmanからREST APIを呼び出すために必要な情報（BIG-IP管理用IPアドレス、資格情報など）を環境変数として登録することで、毎回入力せずに済みます。
 
 このタスクを完了するには、次の手順を実行します。
 
@@ -45,7 +45,7 @@ Task 1 - Postmanの ``Collections`` と環境変数をインポートする
 
       :raw_github_url:`/postman_collections/INTRO_Automation_Orchestration_Lab.postman_environment.json`
 
-#. 複数設定の手間を省くために、Postmanの ``Environments`` （環境変数）機能を使用します。本機能には、グローバル変数を設定可能で、リクエストが送信される前に環境変数に設定した値に置換されます。Postman画面の右上にあるプルダウンより、環境変数を ``INTRO - Automation&Orchestration Lab`` に設定します。
+#. 前述のように、複数設定の手間を省くために、Postmanの ``Environments`` （環境変数）機能を使用します。本機能には、グローバル変数を設定可能で、リクエストが送信される前に環境変数に設定した値に置換されます。Postman画面の右上にあるプルダウンより、環境変数を ``INTRO - Automation&Orchestration Lab`` に設定します。
 
    |image9|
 
@@ -109,11 +109,11 @@ BIG-IPとiWorkflowは、TMOSで利用可能なその他の認証の仕組みに�
 #. レスポンスステータスコードを確認します。 認証が成功し、トークンが生成された場合、応答は200 OKステータスコードを返します。
    ステータスコードが401の場合は、資格情報が正しいかどうかを確認してください。
 
-   **Successful:**
+   **成功の場合:**
 
    - |image15|
 
-   **Unsuccessful:**
+   **失敗の場合:**
 
    - |image16|
 

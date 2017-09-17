@@ -100,11 +100,15 @@ Task 2 – DNS/NTP設定の変更
 
 #. ``Collections`` 内の ``Step 4: Set System DNS Settings`` をクリックします。JSONボディを確認し、DNSサーバのIPアドレスに ``4.2.2.2`` と ``8.8.8.8`` がリストされていることを確認してください。さらに、``f5.local`` の検索ドメインを追加します。 これらの属性の両方に対してJSON配列を変更します。
 
+   |image89|
+
 #. ``Send`` ボタンをクリックし、変更が正常に実装されたことを確認します。
 
 #. ``Collections`` 内の ``Step 5: Get System NTP Settings`` をクリックします。 ``Send`` をクリックし、現在の設定を確認します。
 
 #. ``Collections`` 内の ``Step 6: Set System NTP Settings`` をクリックします。JSONボディにて ``0.pool.ntp.org`` と ``1.pool.ntp.org`` のホスト名を持つNTPサーバが ``servers`` 属性に含まれていることを確認し、 ``timezone`` 属性を ``Japan`` に変更してください。
+
+   |image90|
 
 #. ``Send`` ボタンをクリックし、変更が正常に反映されたことを確認します。
 
@@ -140,8 +144,12 @@ Task 3 – デフォルトのユーザーアカウントのパスワードを更
 #. **上記の手順を繰り返し、パスワードを** ``admin`` **に戻します。**
 
 .. |image25| image:: /_static/image025.png
-   :scale: 60%
+   :scale: 70%
 .. |image26| image:: /_static/image026.png
    :scale: 40%
 .. |image27| image:: /_static/image027.png
+   :scale: 40%
+.. |image89| image:: /_static/image089.png
+   :scale: 40%
+.. |image90| image:: /_static/image090.png
    :scale: 40%

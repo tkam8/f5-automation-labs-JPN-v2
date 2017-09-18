@@ -66,7 +66,7 @@ Task 1 – デバイスのホスト名の設定とGUIセットアップウィザ
    - ``Body`` タブでJSONのボディを確認した後、``hostname`` 属性にて、ホスト名を ``bigip-a.f5.local`` に変更してください。
 
    - ``guiSetup`` 属性にて、GUIセットアップウィザードが無効となっていることを確認してください。
-   |image25|
+     |image25|
 
 #. ``Send`` ボタンをクリックし、Response Bodyの内容を確認します。上記で変更された属性どおりに設定されていることを確認します。 
 GETリクエストを再度送信することによりglobal-settingsが更新されていることも確認できます。
@@ -99,7 +99,7 @@ Task 2 – DNS/NTP設定の変更
 
 #. ``Collections`` 内の ``Step 4: Set System DNS Settings`` をクリックします。JSONボディを確認し、DNSサーバのIPアドレスに ``4.2.2.2`` と ``8.8.8.8`` がリストされていることを確認してください。さらに、``f5.local`` の検索ドメインを追加します。これらの属性の両方に対してJSON配列を変更します。
 
-   |image89|
+     |image89|
 
 #. ``Send`` ボタンをクリックし、変更が正常に実装されたことを確認します。
 
@@ -107,7 +107,7 @@ Task 2 – DNS/NTP設定の変更
 
 #. ``Collections`` 内の ``Step 6: Set System NTP Settings`` をクリックします。JSONボディにて ``0.pool.ntp.org`` と ``1.pool.ntp.org`` のホスト名を持つNTPサーバが ``servers`` 属性に含まれていることを確認し、 ``timezone`` 属性を ``Japan`` に変更してください。
 
-   |image90|
+     |image90|
 
 #. ``Send`` ボタンをクリックし、変更が正常に反映されたことを確認します。
 

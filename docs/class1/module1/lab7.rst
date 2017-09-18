@@ -87,4 +87,4 @@ Task 3 – トランザクションのコミット
 .. |image77| image:: /_static/image077.png
    :scale: 90%
 
-.. 注記:: ``X-F5-REST-Coordination-Id`` ヘッダーを送信するとき、システムはトランザクションキューにエントリを追加すると仮定します。トランザクション・キューの変更（キューからのエントリの削除、順序の変更、トランザクションのコミットなど）を発行する場合は、このヘッダーを削除する必要があります。その特定のケースでヘッダーを削除しないと、システムはHTTPエラー400の次のようなエラーを送信します。 "message": "Transaction XXXXX operation .... is not allowed to be added to transaction."
+.. WARNING:: ``X-F5-REST-Coordination-Id`` ヘッダーを送信するとき、システムはトランザクションキューにエントリを追加すると仮定します。トランザクション・キューの変更（キューからのエントリの削除、順序の変更、トランザクションのコミットなど）を発行する場合は、このヘッダーを削除する必要があります。その特定のケースでヘッダーを削除しないと、システムはHTTPエラー400の次のようなエラーを送信します。 "message": "Transaction XXXXX operation .... is not allowed to be added to transaction."

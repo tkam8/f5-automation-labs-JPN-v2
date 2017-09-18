@@ -21,7 +21,7 @@ Lab |labmodule|\.\ |labnum| – 基本的なLTM Configの設定
 
    -  WAFのようなL7ユースケースはどうなのか？
 
-      　-  WAFポリシー -> HTTPポリシー -> Virtualサーバ
+     　-  WAFポリシー -> HTTPポリシー -> Virtualサーバ
 
 -  オブジェクトを削除する際の手順？
 

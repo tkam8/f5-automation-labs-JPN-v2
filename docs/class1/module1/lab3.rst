@@ -119,7 +119,7 @@ Task 3 – デフォルトのユーザーアカウントのパスワードを更
 
 #. ``Collections`` 内の ``Step 7: Set root User Password`` をクリックします。
 
-#. "shared" REST workerにPOST操作を実行していることに注目してください。JSONボディ内の ``newPassword`` 属性にて ``newdefault`` という値に更新し、``Send`` ボタンをクリックします。 
+#. "shared" RESTワーカーにPOST操作を実行していることに注目してください。JSONボディ内の ``newPassword`` 属性にて ``newdefault`` という値に更新し、``Send`` ボタンをクリックします。 
 
 
    |image26|

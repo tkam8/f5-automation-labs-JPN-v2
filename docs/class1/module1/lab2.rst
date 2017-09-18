@@ -15,7 +15,7 @@ BIG-IPとiWorkflowは、HTTP BASICとToken basedの２種類の認証方式を�
 Task 1 - Postmanの ``Collections`` と環境変数をインポートする
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-このラボで使用されるPostmanのコレクションと環境変数をインポートします。PostmanからREST APIを呼び出すために必要な情報（BIG-IP管理用IPアドレス、資格情報など）を環境変数として登録することで、毎回入力せずにすみます。
+このラボで使用されるPostmanのコレクションと環境変数をインポートします。コレクションを使用すると、個々のREST APIリクエストをまとめてグループ化できます。そして、RESTの通信はステートレスのため、クライアントとBIG-IP間の接続に状態を持ちません。そこで、Postmanの ``Environments`` （環境変数）機能を使用し、必要な情報を都度入力する手間を省きます。
 
 このタスクを完了するには、次の手順を実行します。
 
@@ -45,7 +45,7 @@ Task 1 - Postmanの ``Collections`` と環境変数をインポートする
 
       :raw_github_url:`/postman_collections/INTRO_Automation_Orchestration_Lab.postman_environment.json`
 
-#. RESTの通信はステートレスのため、クライアントとBIG-IP間の接続に状態を持ちません。そこで、Postmanの ``Environments`` （環境変数）機能を使用し、必要な情報を都度入力する手間を省きます。本機能には、グローバル変数を設定可能で、リクエストが送信される前に環境変数に設定した値に置換されます。Postman画面の右上にあるプルダウンより、環境変数を ``INTRO - Automation&Orchestration Lab`` に設定します。
+#. 前述のように、PostmanからREST APIを呼び出すために必要な情報（BIG-IP管理用IPアドレス、資格情報など）を環境変数として登録することで、毎回入力せずにすみます。本機能には、グローバル変数を設定可能で、リクエストが送信される前に環境変数に設定した値に置換されます。Postman画面の右上にあるプルダウンより、環境変数を ``INTRO - Automation&Orchestration Lab`` に設定します。
 
    |image9|
 

@@ -101,7 +101,7 @@ Task 3 – Sync-Failover Device Groupを作成
 
    |image31|
 
-#. DeviceGroup1を手動で同期し、必要な初期同期(Initial Sync)を開始します。 ``Collections`` 内の ``Step 8: Manually Sync　DeviceGroup1`` の項目をクリックし、リクエストタイプ、URL、JSONボディを確認します。``/mgmt/tm/cm/config-sync`` ワーカーにPOSTリクエストを送信し、 ``BIG-IP-A`` からのDeviceGroup1へのconfig-sync( ``to-group`` )を実行するように指示します。
+#. DeviceGroup1を手動で同期し、必要な初期同期(Initial Sync)を開始します。 ``Collections`` 内の ``Step 8: Manually Sync　DeviceGroup1`` の項目をクリックし、リクエストタイプ、URL、JSONボディを確認します。``/mgmt/tm/cm/config-sync`` RESTワーカーにPOSTリクエストを送信し、 ``BIG-IP-A`` からのDeviceGroup1へのconfig-sync( ``to-group`` )を実行するように指示します。
 
    |image32|
 

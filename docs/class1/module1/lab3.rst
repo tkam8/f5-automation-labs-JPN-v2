@@ -98,7 +98,7 @@ Task 2 – DNS/NTP設定の変更
 
 #. ``Collections`` 内の ``Step 3: Get System DNS Settings`` をクリックします。``Send`` をクリックし、現在の設定を確認します。
 
-#. ``Collections`` 内の ``Step 4: Set System DNS Settings`` をクリックします。JSONボディを確認し、DNSサーバのIPアドレスに ``4.2.2.2`` と ``8.8.8.8`` がリストされていることを確認してください。さらに、``f5.local`` の検索ドメインを追加します。 これらの属性の両方に対してJSON配列を変更します。
+#. ``Collections`` 内の ``Step 4: Set System DNS Settings`` をクリックします。JSONボディを確認し、DNSサーバのIPアドレスに ``4.2.2.2`` と ``8.8.8.8`` がリストされていることを確認してください。さらに、``f5.local`` の検索ドメインを追加します。これらの属性の両方に対してJSON配列を変更します。
 
    |image89|
 
@@ -122,14 +122,15 @@ Task 3 – デフォルトのユーザーアカウントのパスワードを更
 
 #. ``Collections`` 内の ``Step 7: Set root User Password`` をクリックします。
 
-#. shared REST workerにPOST操作を実行していることに注目してください。JSONボディ内の ``newPassword`` 属性にて ``newdefault`` という値に更新し、``Send`` ボタンをクリックします。
+#. "shared" REST workerにPOST操作を実行していることに注目してください。JSONボディ内の ``newPassword`` 属性にて ``newdefault`` という値に更新し、``Send`` ボタンをクリックします。 
+
 
    |image26|
+
 
 #. Puttyを起動し、設定したパスワードで ``BIG-IP-A`` にログインし、正常に変更されたことを確認します。
 
 #. **上記の手順を繰り返し、パスワードを** ``default`` **に戻します。**
-
 
 **admin** ユーザーのパスワードを変更するには、以下の手順を実行します:
 

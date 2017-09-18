@@ -74,7 +74,7 @@ Self IPを設定するには、次の手順を実行します。
 
 #. 手順1を繰り返します。ただし、今回はJSONボディを変更し、上記の表のパラメータを使用し ``Self-External`` のSelf IPを作成します。
 
-#. ``Collections`` 内の ``Step 4: Get Self IPs`` をクリックします。Self IP　Collectionを取得するには ``Send`` ボタンをクリックしてください。応答を確認し、両方のSelf IPが作成されていることを確認します。
+#. ``Collections`` 内の ``Step 4: Get Self IPs`` をクリックします。Self IP　コレクションを取得するには ``Send`` ボタンをクリックしてください。応答を確認し、両方のSelf IPが作成されていることを確認します。
 
 Task 3 – Routeの作成（確認）
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -85,4 +85,4 @@ Routeを設定するには、次の手順を実行します。
 
 #. Routeを作成するには、``Send`` ボタンをクリックします。
 
-#. ``Collections`` 内の ``Step 6: Get Routes`` をクリックします。Routes Collectionを取得するには ``Send`` ボタンをクリックしてください。応答を確認し、routeが作成されていることを確認します。
+#. ``Collections`` 内の ``Step 6: Get Routes`` をクリックします。Routes コレクションを取得するには ``Send`` ボタンをクリックしてください。応答を確認し、routeが作成されていることを確認します。

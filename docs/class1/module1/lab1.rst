@@ -15,7 +15,7 @@ Task 1 – TMOS Web InterfaceのAPIを通して、iControl REST APIを学習し�
 このユーティリティは、TMOSオブジェクトがREST APIにどのようにマップされるかを理解するのに役立ちます。
 これらのAPIインターフェイスはCreate、Read、Update、Delete（CRUD）機能を実装していますが、オブジェクト作成はTMUIまたはTMSHで行って、APIインターフェイスを「読み取り」ツールとして使用することが多いようです。　
 
-#. Google Chromeを開き、``BIG-IP A REST TOC`` のブックマークをクリックします。表示される証明書の警告をスキップし、ブックマークのログイン画面が表示されることを確認します。URLの ``/mgmt/toc`` パスは、TMOSバージョン11.6以降で使用できます。
+#. Google Chromeを開き、``BIG-IP A REST TOC``  (https://10.1.1.4/mgmt/toc) のブックマークをクリックします。表示される証明書の警告をスキップし、ブックマークのログイン画面が表示されることを確認します。URLの ``/mgmt/toc`` パスは、TMOSバージョン11.6以降で使用できます。
 
    |image1|
 

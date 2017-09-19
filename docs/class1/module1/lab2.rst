@@ -35,7 +35,7 @@ Task 1 - Postmanの ``Collections`` と環境変数をインポートする
    |image88|
 
 
-#. Postmanの ``Collections`` のサイドバーに ``F5 Automation & Orchestration Intro`` という名前のコレクションが表示されます。
+#. Postmanの ``Collections`` のサイドバーに ``F5 Automation & Orchestration Intro`` という名前のコレクションが表示されます。サイドバーが表示されない場合は、 |image91| アイコンをクリックします。
 
    |image10|
 
@@ -212,3 +212,5 @@ Task 4 – プール情報を取得する'example'テンプレート
    :scale: 40%
 .. |image88| image:: /_static/image088.png
    :scale: 40%
+.. |image91| image:: /_static/image091.png
+   :scale: 60%

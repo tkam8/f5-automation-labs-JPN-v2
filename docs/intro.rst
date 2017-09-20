@@ -49,7 +49,7 @@ https://github.com/f5devcentral/f5-automation-labs/
       - - **Management:** 10.1.1.250
         - **Internal:** 10.1.10.250
         - **External:** 10.1.20.250
-      - Administrator/*available in instance details*
+      - user/user
     * - BIG-IP A
       - - **Management:** 10.1.1.4
         - **Internal:** 10.1.10.1

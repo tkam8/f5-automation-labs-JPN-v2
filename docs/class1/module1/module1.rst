@@ -19,7 +19,24 @@ Module 1 – REST APIの基礎とデバイスのオンボーディング
 
       - /var/log/restjavad.0.log
 
+.. NOTE::
+    In order to confirm the results of REST API calls made in this lab, it's 
+    beneficial to have GUI/SSH sessions open to BIG-IP and iWorkflow devices. 
+    By default, BIG-IP and iWorkflow will log all REST API related events locally 
+    to **restjavad.0.log** and can be configured to log to a remote syslog server 
+    (see https://support.f5.com/csp/article/K13080 instructions). Also, the **ltm** 
+    log file on BIG-IP will contain log messages that pertain specifically to 
+    BIG-IP local traffic management events. These log file locations are below:
 
+    - BIG-IP:
+
+      - /var/log/ltm
+      
+      - /var/log/restjavad.0.log
+
+    - iWorkflow: 
+
+      - /var/log/restjavad.0.log
 
 .. toctree::
    :maxdepth: 1
